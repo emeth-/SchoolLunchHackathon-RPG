@@ -2,7 +2,9 @@
 /** GAME ******************************************************************************************/
 
 Game = {
+    form_data          : {},
     activeNPC          : '',
+    npcDialogueProgress: {},
     currentArea        : 'a000',
     currentDirection   : 'down',
     currentFocus       : '',
@@ -83,11 +85,11 @@ Game = {
             }
         }
 
-        if (Stage.playersMap[objectCoord.y + offsetT]) {
-            if (Stage.playersMap[objectCoord.y + offsetT][objectCoord.x + offsetL]) {
-                return Stage.playersMap[objectCoord.y + offsetT][objectCoord.x + offsetL];
-            }
-        }
+        //if (Stage.playersMap[objectCoord.y + offsetT]) {
+        //    if (Stage.playersMap[objectCoord.y + offsetT][objectCoord.x + offsetL]) {
+        //        return Stage.playersMap[objectCoord.y + offsetT][objectCoord.x + offsetL];
+        //    }
+        //}
 
         return false;
     },
@@ -265,25 +267,34 @@ Game = {
 
 /** BINDINGS **************************************************************************************/
 
-//
+var game_keys = [38,37,39,40,32,13]; //Arrow keys, spacebar, enter
 $(document).on('keydown', function (event) {
-    event.preventDefault();
-
     var key = event.keyCode || event.which;
+    if (key in game_keys) {
+        event.preventDefault();
+    }
 
     Game.pressedKeys[event.keyCode] = true;
 });
 
-//
 $(document).on('keyup', function (event) {
-    event.preventDefault();
 
     var key = event.keyCode || event.which;
-
+    if (key in game_keys) {
+        event.preventDefault();
+    }
     Game.pressedKeys[event.keyCode]     = false;
     $.modals.allowPress                 = true;
     $.player.allowPress                 = true;
 });
+
+function trigger_beginning() {
+    var newDialogue = Dialogue[$('#n002').data('npc')['dialogueId']];
+    if ('triggeredText' in newDialogue) {
+        newDialogue.triggeredText($('#n002').data('npc'));
+    }
+    $('#n002').npc('talk', newDialogue);
+}
 
 /** GAME START! ***********************************************************************************/
 

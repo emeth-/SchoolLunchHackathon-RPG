@@ -34,9 +34,18 @@ function NPC () {
 
         Stage.npcsMap[(data.y / Game.gridCellSize) - 1][(data.x / Game.gridCellSize)] = npc;
 
-        if (data.properties.wander) {
+        if (data.properties.wander && data.properties.wander != "false") {
             npc.npc('wander');
         }
+
+        if (data.properties.active && data.properties.active == 'false') {
+            $('#'+data.name).hide();
+        }
+
+        if (data.properties.defaultdirection) {
+            $('#'+data.name).find('.npc-sprite').addClass(data.properties.defaultdirection);
+        }
+
     },
 
     /**
@@ -88,20 +97,27 @@ function NPC () {
      *
      */
     this.move = function (direction) {
+
+        //moving single space
+        var direction_single = direction;
+        if (typeof direction != "string") {
+            direction_single = direction.shift();
+        }
+
         var
             npc         = $(this),
-            collision   = Game.checkCollisions(npc, direction),
+            collision   = Game.checkCollisions(npc, direction_single),
             npcPos      = Game.getCoordinates(npc),
             npcSprite   = npc.find('.npc-sprite');
 
-        Game.currentDirection = direction;
+        Game.currentDirection = direction_single;
 
-        npcSprite.removeClass('walking up down left right').addClass('walking ' + direction);
+        npcSprite.removeClass('walking up down left right').addClass('walking ' + direction_single);
 
         if (collision) {
             npcSprite.removeClass('walking');
         } else {
-            Game.moveObject(npc, direction, function () {
+            Game.moveObject(npc, direction_single, function () {
                 var newPos = Game.getCoordinates(npc);
 
                 if (!Stage.npcsMap[newPos.y]) {
@@ -113,8 +129,12 @@ function NPC () {
                 delete Stage.npcsMap[npcPos.y][npcPos.x];
 
                 npcSprite.removeClass('walking');
+                if (typeof direction != "string" && direction.length > 0) {
+                    Game.activeNPC.npc('move', direction);
+                }
             });
         }
+
     },
 
     /**

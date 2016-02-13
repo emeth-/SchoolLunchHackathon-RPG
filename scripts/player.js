@@ -28,11 +28,6 @@ function Player () {
 
         player.data('player')['speedMultiplier'] = 1;
 
-        // Shift
-        if (Game.pressedKeys[16]) {
-            player.data('player')['speedMultiplier'] = 2;
-        }
-
         // Spacebar, Enter
         if (Game.pressedKeys[13] || Game.pressedKeys[32]) {
             var collision = Game.checkCollisions(player, player.data('player')['direction']);
@@ -47,8 +42,11 @@ function Player () {
                         break;
 
                     case (collision.is('.npc')) :
-                        collision.npc('talk', Dialogue[collision.data('npc')['dialogueId']]);
-
+                        var newDialogue = Dialogue[collision.data('npc')['dialogueId']];
+                        if ('triggeredText' in newDialogue) {
+                            newDialogue.triggeredText(collision.data('npc'));
+                        }
+                        collision.npc('talk', newDialogue);
                         break;
                 }
             }
@@ -56,32 +54,32 @@ function Player () {
 
         switch (true) {
 
-            // W, Up Arrow
-            case ((Game.pressedKeys[87] || Game.pressedKeys[38])) :
+            // Up Arrow
+            case (Game.pressedKeys[38]) :
                 var direction = player.data('player')['direction'] = Game.directions.up;
 
                 player.player('move', direction);
 
                 break;
 
-            // S, Down Arrow
-            case ((Game.pressedKeys[83] || Game.pressedKeys[40])) :
+            // Down Arrow
+            case (Game.pressedKeys[40]) :
                 var direction = player.data('player')['direction'] = Game.directions.down;
 
                 player.player('move', direction);
 
                 break;
 
-            // A, Left Arrow
-            case ((Game.pressedKeys[65] || Game.pressedKeys[37])) :
+            // Left Arrow
+            case (Game.pressedKeys[37]) :
                 var direction = player.data('player')['direction'] = Game.directions.left;
 
                 player.player('move', direction);
 
                 break;
 
-            // D, Right Arrow
-            case ((Game.pressedKeys[68] || Game.pressedKeys[39])) :
+            // Right Arrow
+            case (Game.pressedKeys[39]) :
                 var direction = player.data('player')['direction'] = Game.directions.right;
 
                 player.player('move', direction);

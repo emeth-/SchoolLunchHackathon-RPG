@@ -12,8 +12,8 @@ Sounds = {
         error   : new Audio(Game.domain + '/sounds/error.wav')
     },
     music          : {
-        shadesOfRed : Game.domain + '/sounds/Pokemon_Red_Version_Shades_of_Red_OC_ReMix.mp3',
-        wetDreams   : Game.domain + '/sounds/Pokemon_Blue_Version_Wet_Dreams_OC_ReMix.mp3'
+        //shadesOfRed : Game.domain + '/sounds/Pokemon_Red_Version_Shades_of_Red_OC_ReMix.mp3',
+        //wetDreams   : Game.domain + '/sounds/Pokemon_Blue_Version_Wet_Dreams_OC_ReMix.mp3'
     },
 
     changeMusic : function (newMusic) {

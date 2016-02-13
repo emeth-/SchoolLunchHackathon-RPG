@@ -28,35 +28,49 @@ function Modals () {
         if (!$.modals.allowPress) {
             return;
         }
-
-        // Shift
-        if (Game.pressedKeys[16]) {
-
-        }
-
+        
         // Spacebar, Enter
         if (Game.pressedKeys[13] || Game.pressedKeys[32]) {
             $.modals.allowPress = false;
 
             switch (true) {
                 case (activeElement.is('li')) :
-                    var choice = dialogue.choices[activeElement.index()];
+                    if (Game.pressedKeys[13]) { //enter key only
+                        var choice = dialogue.choices[activeElement.index()];
 
-                    if (choice.action) {
-                        choice.action();
+                        if (choice.action) {
+                            choice.action();
+                        }
+
+                        if (choice.goTo) {
+                            return modal.modal('populate', Dialogue[choice.goTo]);
+                        }
+
                     }
-
-                    if (choice.goTo) {
-                        return modal.modal('populate', Dialogue[choice.goTo]);
-                    }
-
                     break;
+                
+                case (activeElement.is('input')) :
+                    if (Game.pressedKeys[13]) { //enter key only
+                        if (dialogue.action) {
+                            dialogue.action(activeElement.val());
+                        }
 
+                        if (dialogue.goTo) {
+                            return modal.modal('populate', Dialogue[dialogue.goTo]);
+                        }
+
+                    }
+                    break;
+                
                 default :
                     if ($.modals.typing) {
                         $.modals.cancelTyping = true;
 
                         return;
+                    }
+
+                    if (dialogue.action) {
+                        dialogue.action(modal.data('modal')['npc']);
                     }
 
                     if (dialogue.goTo) {
@@ -256,6 +270,12 @@ function Modals () {
 
                 modal.html(choices).find('li:first').trigger('focus');
 
+                break;
+
+            // Input
+            case 'input':
+                var choices = dialogue.label + '<br><input type="text" tabindex="0">';
+                modal.html(choices).find('input').trigger('focus');
                 break;
 
             // Dialogue

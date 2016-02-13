@@ -130,7 +130,7 @@ Stage = {
                 Stage.collisionsMap[row] = {};
             }
 
-            Stage.collisionsMap[row][counter] = value === 2;
+            Stage.collisionsMap[row][counter] = (value === 2);
 
             if (value !== 0) { // 0 is empty, 2 is a collision
                 $('#collisions').append(
@@ -208,15 +208,24 @@ Stage = {
             row     = 0,
             width   = tiles.width;
 
+        var yellow_brick_counter = 0;
+
         $.each(tiles.data, function (index, value) {
             var
                 y   = Math.ceil(value / Stage.tileMap.width),
                 x   = (value - ((y - 1) * Stage.tileMap.width));
 
             if (value !== 0) { // 0 is empty, therefore don't draw it
+                var yellow_brick_road = "";
+                var yellow_brick_counter_display = "";
+                if (tiles.name == "tiles2" && value == 4) {
+                    yellow_brick_road = " display:none;";
+                    yellow_brick_counter += 1;
+                    yellow_brick_counter_display = " yb"+yellow_brick_counter;
+                }
                 $('#tiles').append(
-                    '<div class="tile t' + value + ' ' + tiles.name + '" '
-                    + 'style="background-position: -' + ((x * Game.gridCellSize) - Game.gridCellSize) + 'px -' + ((y * Game.gridCellSize) - Game.gridCellSize) + 'px; '
+                    '<div class="tile t' + value + ' ' + tiles.name + yellow_brick_counter_display + '" '
+                    + 'style="background-position: -' + ((x * Game.gridCellSize) - Game.gridCellSize) + 'px -' + ((y * Game.gridCellSize) - Game.gridCellSize) + 'px; '+ yellow_brick_road
                     + 'left: ' + (counter * Game.gridCellSize) + 'px; top: ' + (row * Game.gridCellSize) + 'px">'
                     + '</div>'
                 );
@@ -281,6 +290,10 @@ Stage = {
                 }
 
                 Stage.center();
+
+                setTimeout(function(){
+                    trigger_beginning()
+                }, 2500);
 
                 Game.loading = false;
 
