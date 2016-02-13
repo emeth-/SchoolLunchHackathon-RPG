@@ -37,9 +37,8 @@ function Modals () {
                 case (activeElement.is('li')) :
                     if (Game.pressedKeys[13]) { //enter key only
                         var choice = dialogue.choices[activeElement.index()];
-
                         if (choice.action) {
-                            choice.action();
+                            choice.action(modal.data('modal')['npc'], choice);
                         }
 
                         if (choice.goTo) {
@@ -52,7 +51,7 @@ function Modals () {
                 case (activeElement.is('input')) :
                     if (Game.pressedKeys[13]) { //enter key only
                         if (dialogue.action) {
-                            dialogue.action(activeElement.val());
+                            dialogue.action(modal.data('modal')['npc'], activeElement.val());
                         }
 
                         if (dialogue.goTo) {

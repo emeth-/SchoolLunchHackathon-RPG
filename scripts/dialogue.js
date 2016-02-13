@@ -50,13 +50,21 @@ Dialogue = {
         goTo        : 'i001'
     },
 
+    'd006': {
+        type        : 'dialogue',
+        text        : "Excellent! Come talk to me to move on to the next step.",
+        emote       : 'think',
+        end         : true
+    },
+
     'i001': {
         type    : 'input',
         emote   : 'think',
         label   : 'How many children do you have? (hit enter when done)',
         goTo    : 'd012',
-        action: function(value) {
+        action: function(npc, value) {
             var total_children = parseInt(value);
+            Game.children_left_to_fill_out = total_children;
             for (var i=1; i<=10; i++) {
                 $('#child'+i).hide();
             }
@@ -87,6 +95,35 @@ Dialogue = {
         }
     },
 
+    'step2_start': {
+        type        : 'dialogue',
+        text        : "Do any Household Members (including you) currently participate in one or more of the following assistance programs: SNAP, TANF, or FDPIR?",
+        goTo        : 'step2_choice'
+    },
+
+    'step2_choice': {
+        type    : 'choice',
+        emote   : 'think',
+        choices : [
+            {
+                label       : 'Yes (we participate in SNAP, TANF, or FDPIR)',
+                goTo        : 'step2_end'
+            },
+
+            {
+                label       : 'No (we do not partipicate in SNAP, TANF, or FDPIR)',
+                goTo        : 'step2_end'
+            }
+        ]
+    },
+
+    'step2_end': {
+        type        : 'dialogue',
+        text        : "Excellent! We're done here, move on to the next room.",
+        emote       : 'think',
+        end         : true
+    },
+
     'dchi01': {
         type        : 'dialogue',
         text        : "I'm an avatar representing your child! Help fill out more information about me.",
@@ -97,7 +134,12 @@ Dialogue = {
         type    : 'input',
         goTo    : 'ichi02',
         label : 'What is my name? (First name, middle initial, last name)',
-        action: function(value) {
+        action: function(npc, value) {
+            var npc_id = npc.data()['npc'].id;
+            if (!(npc_id in Game.formData['children'])) {
+                Game.formData['children'][npc_id] = {};
+            }
+            Game.formData['children'][npc_id]['name'] = value;
         }
     },
 
@@ -106,12 +148,26 @@ Dialogue = {
         choices : [
             {
                 label       : 'I am a student',
-                goTo        : 'ichi03'
+                goTo        : 'ichi03',
+                action: function(npc, value) {
+                    var npc_id = npc.data()['npc'].id;
+                    if (!(npc_id in Game.formData['children'])) {
+                        Game.formData['children'][npc_id] = {};
+                    }
+                    Game.formData['children'][npc_id]['student'] = true;
+                }
             },
 
             {
                 label       : 'I am not a student',
-                goTo        : 'ichi03'
+                goTo        : 'ichi03',
+                action: function(npc, value) {
+                    var npc_id = npc.data()['npc'].id;
+                    if (!(npc_id in Game.formData['children'])) {
+                        Game.formData['children'][npc_id] = {};
+                    }
+                    Game.formData['children'][npc_id]['student'] = false;
+                }
             }
         ]
     },
@@ -121,12 +177,26 @@ Dialogue = {
         choices : [
             {
                 label       : 'I am a foster child',
-                goTo        : 'ichi04'
+                goTo        : 'ichi04',
+                action: function(npc, value) {
+                    var npc_id = npc.data()['npc'].id;
+                    if (!(npc_id in Game.formData['children'])) {
+                        Game.formData['children'][npc_id] = {};
+                    }
+                    Game.formData['children'][npc_id]['foster_child'] = true;
+                }
             },
 
             {
                 label       : 'I am not a foster child',
-                goTo        : 'ichi04'
+                goTo        : 'ichi04',
+                action: function(npc, value) {
+                    var npc_id = npc.data()['npc'].id;
+                    if (!(npc_id in Game.formData['children'])) {
+                        Game.formData['children'][npc_id] = {};
+                    }
+                    Game.formData['children'][npc_id]['foster_child'] = false;
+                }
             }
         ]
     },
@@ -136,12 +206,26 @@ Dialogue = {
         choices : [
             {
                 label       : 'I am homeless / a migrate / a runaway',
-                goTo        : 'ichi05'
+                goTo        : 'ichi05',
+                action: function(npc, value) {
+                    var npc_id = npc.data()['npc'].id;
+                    if (!(npc_id in Game.formData['children'])) {
+                        Game.formData['children'][npc_id] = {};
+                    }
+                    Game.formData['children'][npc_id]['homeless'] = true;
+                }
             },
 
             {
                 label       : 'I am not homeless / a migrate / a runaway',
-                goTo        : 'ichi05'
+                goTo        : 'ichi05',
+                action: function(npc, value) {
+                    var npc_id = npc.data()['npc'].id;
+                    if (!(npc_id in Game.formData['children'])) {
+                        Game.formData['children'][npc_id] = {};
+                    }
+                    Game.formData['children'][npc_id]['homeless'] = false;
+                }
             }
         ]
     },
@@ -150,16 +234,16 @@ Dialogue = {
         type        : 'dialogue',
         text        : "Thanks! I'm good to go, move on the my sibling or talk to the clerk again to proceed!",
         end         : true,
+        triggeredText: function(npc) {
+            npc.dialogueId = "i000";
+        },
         action      : function(npc) {
             if (npc) {
+                Game.children_left_to_fill_out -= 1;
                 var move_directions = [];
 
                 move_directions.push('up');
                 move_directions.push('up');
-
-                //for (var i=0; i<13; i++) {
-                //    move_directions.push('right');
-                //}
 
                 move_directions.push('up');
                 move_directions.push('up');
@@ -170,6 +254,14 @@ Dialogue = {
                 setTimeout(function(){
                     npc.find('.npc-sprite').removeClass('up').addClass('down');
                 }, 2000);
+
+                if (Game.children_left_to_fill_out <= 0) {
+                    setTimeout(function(){
+                        var newDialogue = Dialogue["d006"];
+                        $('#n003').npc('talk', newDialogue);
+                        $('#n003').data('npc').dialogueId = "step2_start";
+                    }, 1000);
+                }
             }
         }
     }

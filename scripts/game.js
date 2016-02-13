@@ -5,6 +5,10 @@ Game = {
     form_data          : {},
     activeNPC          : '',
     npcDialogueProgress: {},
+    formData: {
+        'children_left_to_fill_out': 0,
+        'children': []
+    },
     currentArea        : 'a000',
     currentDirection   : 'down',
     currentFocus       : '',
