@@ -6,7 +6,6 @@ Game = {
     activeNPC          : '',
     npcDialogueProgress: {},
     formData: {
-        'children_left_to_fill_out': 0,
         'children': []
     },
     currentArea        : 'a000',
@@ -277,7 +276,6 @@ $(document).on('keydown', function (event) {
     if (key in game_keys) {
         event.preventDefault();
     }
-
     Game.pressedKeys[event.keyCode] = true;
 });
 
@@ -298,6 +296,18 @@ function trigger_beginning() {
         newDialogue.triggeredText($('#n002').data('npc'));
     }
     $('#n002').npc('talk', newDialogue);
+
+    //$.modals.create(
+    //    {
+    //        height  : 16,
+    //        width   : '25%'
+    //    },
+    //    {
+    //        left    : 20 + 3, // The 3 is half the border-image-outset value
+    //        top     : $(window).height() - 68 - 3 // The 3 is half the border-image-outset value
+    //    },
+    //    Dialogue['help1']
+    //);
 }
 
 /** GAME START! ***********************************************************************************/

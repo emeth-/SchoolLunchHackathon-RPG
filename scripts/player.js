@@ -52,37 +52,42 @@ function Player () {
             }
         }
 
+
         switch (true) {
 
             // Up Arrow
             case (Game.pressedKeys[38]) :
-                var direction = player.data('player')['direction'] = Game.directions.up;
-
-                player.player('move', direction);
+                if (!$('.modal').length) {
+                    var direction = player.data('player')['direction'] = Game.directions.up;
+                    player.player('move', direction);
+                }
 
                 break;
 
             // Down Arrow
             case (Game.pressedKeys[40]) :
-                var direction = player.data('player')['direction'] = Game.directions.down;
-
-                player.player('move', direction);
+                if (!$('.modal').length) {
+                    var direction = player.data('player')['direction'] = Game.directions.down;
+                    player.player('move', direction);
+                }
 
                 break;
 
             // Left Arrow
             case (Game.pressedKeys[37]) :
-                var direction = player.data('player')['direction'] = Game.directions.left;
-
-                player.player('move', direction);
+                if (!$('.modal').length) {
+                    var direction = player.data('player')['direction'] = Game.directions.left;
+                    player.player('move', direction);
+                }
 
                 break;
 
             // Right Arrow
             case (Game.pressedKeys[39]) :
-                var direction = player.data('player')['direction'] = Game.directions.right;
-
-                player.player('move', direction);
+                if (!$('.modal').length) {
+                    var direction = player.data('player')['direction'] = Game.directions.right;
+                    player.player('move', direction);
+                }
 
                 break;
 

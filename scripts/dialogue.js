@@ -4,9 +4,9 @@
 Dialogue = {
 
     // Music
-    'shadesOfRed': {
+    'help1': {
         type        : 'notification',
-        text        : '<a href="http://ocremix.org/remix/OCR02216" target="_blank">Shades of Red, by halc</a>'
+        text        : 'Use the arrows keys to move, spacebar to interact with someone, and enter to submit.'
     },
 
     'wetDreams': {
@@ -107,7 +107,7 @@ Dialogue = {
         choices : [
             {
                 label       : 'Yes (we participate in SNAP, TANF, or FDPIR)',
-                goTo        : 'step2_end'
+                goTo        : 'step2_followup'
             },
 
             {
@@ -117,11 +117,93 @@ Dialogue = {
         ]
     },
 
+    'step2_followup': {
+        type    : 'input',
+        goTo    : 'step2_end',
+        label : 'What is your case number?',
+        action: function(npc, value) {
+            var npc_id = npc.data()['npc'].id;
+            if (!(npc_id in Game.formData['children'])) {
+                Game.formData['children'][npc_id] = {};
+            }
+            Game.formData['children'][npc_id]['case_number'] = value;
+        }
+    },
+
     'step2_end': {
         type        : 'dialogue',
         text        : "Excellent! We're done here, move on to the next room.",
         emote       : 'think',
-        end         : true
+        end         : true,
+        action: function(npc, value) {
+            if (npc) {
+                var move_directions = [];
+
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('right');
+
+                npc.npc('move', move_directions);
+
+                setTimeout(function(){
+                    npc.find('.npc-sprite').removeClass('right').addClass('down');
+                }, 2000);
+
+                setTimeout(function(){
+                    var newDialogue = Dialogue["d006"];
+                    $('#n004').npc('talk', newDialogue);
+                    $('#n004').data('npc').dialogueId = "step3_start";
+                }, 1000);
+            }
+        }
+    },
+
+    'step3_start': {
+        type        : 'dialogue',
+        text        : "We're going to finish establishing the size of your household here, by gathering information on the adults.",
+        goTo        : 'step3_i1'
+    },
+
+    'step3_i1': {
+        type    : 'input',
+        emote   : 'think',
+        label   : 'How many adults are in your household?',
+        goTo    : 'step3_i2',
+        action: function(npc, value) {
+            var total_adults = parseInt(value);
+            Game.adults_left_to_fill_out = total_adults;
+            for (var i=1; i<=10; i++) {
+                $('#adult'+i).hide();
+            }
+            for (var i=1; i<=total_adults; i++) {
+                $('#adult'+i).show();
+            }
+        }
+    },
+
+    'step3_i2': {
+        type        : 'dialogue',
+        text        : "Excellent! I created avatars to represent each adult. Continue by talking to them!",
+        emote       : 'happiness',
+        end         : true,
+        action      : function(npc) {
+            if (npc) {
+                var move_directions = [];
+
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('left');
+
+                npc.npc('move', move_directions);
+                setTimeout(function(){
+                    npc.find('.npc-sprite').removeClass('left').addClass('down');
+                }, 1500);
+            }
+        }
     },
 
     'dchi01': {
@@ -232,7 +314,7 @@ Dialogue = {
 
     'ichi05': {
         type        : 'dialogue',
-        text        : "Thanks! I'm good to go, move on the my sibling or talk to the clerk again to proceed!",
+        text        : "Thanks! I'm good to go!",
         end         : true,
         triggeredText: function(npc) {
             npc.dialogueId = "i000";

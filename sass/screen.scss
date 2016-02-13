@@ -218,6 +218,56 @@ a {
     }
 }
 
+@for $i from 0 through $adult-limit {
+    $leading: "";
+
+    $leading: $leading + $i;
+
+    #adult#{$leading} {
+        .npc-sprite {
+            background-image: url(../img/n000-down.gif);
+
+            &.down {
+                background-image: url(../img/n000-down.gif);
+
+                &.walking {
+                    background-image: url(../img/n000-down-walking.gif);
+                }
+            }
+
+            &.left {
+                background-image: url(../img/n000-left.gif);
+
+                &.walking {
+                    background-image: url(../img/n000-left-walking.gif);
+                }
+            }
+
+            &.right {
+                -webkit-transform:scaleX(-1);
+                -moz-transform:scaleX(-1);
+                -ms-transform:scaleX(-1);
+                -o-transform:scaleX(-1);
+                transform:scaleX(-1);
+
+                background-image: url(../img/n000-left.gif);
+
+                &.walking {
+                    background-image: url(../img/n000-left-walking.gif);
+                }
+            }
+
+            &.up {
+                background-image: url(../img/n000-up.gif);
+
+                &.walking {
+                    background-image: url(../img/n000-up-walking.gif);
+                }
+            }
+        }
+    }
+}
+
 @for $i from 0 through $children-limit {
     $leading: "";
 

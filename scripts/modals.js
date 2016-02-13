@@ -92,8 +92,8 @@ function Modals () {
 
         switch (true) {
 
-            // W, Up Arrow
-            case ((Game.pressedKeys[87] || Game.pressedKeys[38])) :
+            // Up Arrow
+            case ((Game.pressedKeys[38])) :
                 $.modals.allowPress = false;
 
                 switch (true) {
@@ -105,8 +105,8 @@ function Modals () {
 
                 break;
 
-            // S, Down Arrow
-            case ((Game.pressedKeys[83] || Game.pressedKeys[40])) :
+            // Down Arrow
+            case ((Game.pressedKeys[40])) :
                 $.modals.allowPress = false;
 
                 switch (true) {
@@ -118,14 +118,14 @@ function Modals () {
 
                 break;
 
-            // A, Left Arrow
-            case ((Game.pressedKeys[65] || Game.pressedKeys[37])) :
+            // Left Arrow
+            case ((Game.pressedKeys[37])) :
                 $.modals.allowPress = false;
 
                 break;
 
-            // D, Right Arrow
-            case ((Game.pressedKeys[68] || Game.pressedKeys[39])) :
+            // Right Arrow
+            case ((Game.pressedKeys[39])) :
                 $.modals.allowPress = false;
 
                 break;
