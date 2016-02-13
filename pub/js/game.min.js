@@ -50,11 +50,52 @@ Dialogue = {
         goTo        : 'i001'
     },
 
-    'd006': {
+    'step3_npcstart': {
         type        : 'dialogue',
         text        : "Excellent! Come talk to me to move on to the next step.",
         emote       : 'think',
-        end         : true
+        end         : true,
+        action      : function(npc) {
+            if (npc) {
+                var move_directions = [];
+
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('left');
+
+                npc.npc('move', move_directions);
+
+                setTimeout(function(){
+                    npc.find('.npc-sprite').removeClass('left').addClass('down');
+                }, 2000);
+            }
+        }
+    },
+
+    'step2_npcstart': {
+        type        : 'dialogue',
+        text        : "Excellent! Come talk to me to move on to the next step.",
+        emote       : 'think',
+        end         : true,
+        action      : function(npc) {
+            if (npc) {
+                var move_directions = [];
+
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('down');
+                move_directions.push('right');
+
+                npc.npc('move', move_directions);
+
+                setTimeout(function(){
+                    npc.find('.npc-sprite').removeClass('right').addClass('down');
+                }, 2000);
+            }
+        }
     },
 
     'i001': {
@@ -137,22 +178,9 @@ Dialogue = {
         end         : true,
         action: function(npc, value) {
             if (npc) {
-                var move_directions = [];
-
-                move_directions.push('down');
-                move_directions.push('down');
-                move_directions.push('down');
-                move_directions.push('down');
-                move_directions.push('right');
-
-                npc.npc('move', move_directions);
 
                 setTimeout(function(){
-                    npc.find('.npc-sprite').removeClass('right').addClass('down');
-                }, 2000);
-
-                setTimeout(function(){
-                    var newDialogue = Dialogue["d006"];
+                    var newDialogue = Dialogue["step3_npcstart"];
                     $('#n004').npc('talk', newDialogue);
                     $('#n004').data('npc').dialogueId = "step3_start";
                 }, 1000);
@@ -339,7 +367,7 @@ Dialogue = {
 
                 if (Game.children_left_to_fill_out <= 0) {
                     setTimeout(function(){
-                        var newDialogue = Dialogue["d006"];
+                        var newDialogue = Dialogue["step2_npcstart"];
                         $('#n003').npc('talk', newDialogue);
                         $('#n003').data('npc').dialogueId = "step2_start";
                     }, 1000);
