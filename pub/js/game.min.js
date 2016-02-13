@@ -52,7 +52,7 @@ Dialogue = {
 
     'step4_npcstart': {
         type        : 'dialogue',
-        text        : "One last step remains! Join me in the final room on the left to complete it.",
+        text        : "One last step remains! Go back to the lobby, and then join me in the final room on the left to complete it!",
         emote       : 'think',
         end         : true,
         action      : function(npc) {

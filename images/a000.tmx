@@ -222,7 +222,7 @@
   <object id="32" name="adult1" type="npc" gid="2" x="288" y="448" width="32" height="32">
    <properties>
     <property name="active" value="false"/>
-    <property name="defaultdirection" value="up"/>
+    <property name="defaultdirection" value="down"/>
     <property name="dialogue" value="dadult01"/>
     <property name="wander" value="false"/>
    </properties>
@@ -230,7 +230,7 @@
   <object id="33" name="adult2" type="npc" gid="2" x="256" y="448" width="32" height="32">
    <properties>
     <property name="active" value="false"/>
-    <property name="defaultdirection" value="up"/>
+    <property name="defaultdirection" value="down"/>
     <property name="dialogue" value="dadult01"/>
     <property name="wander" value="false"/>
    </properties>
@@ -238,7 +238,7 @@
   <object id="34" name="adult3" type="npc" gid="2" x="224" y="448" width="32" height="32">
    <properties>
     <property name="active" value="false"/>
-    <property name="defaultdirection" value="up"/>
+    <property name="defaultdirection" value="down"/>
     <property name="dialogue" value="dadult01"/>
     <property name="wander" value="false"/>
    </properties>
@@ -246,7 +246,7 @@
   <object id="35" name="adult4" type="npc" gid="2" x="192" y="448" width="32" height="32">
    <properties>
     <property name="active" value="false"/>
-    <property name="defaultdirection" value="up"/>
+    <property name="defaultdirection" value="down"/>
     <property name="dialogue" value="dadult01"/>
     <property name="wander" value="false"/>
    </properties>
@@ -254,7 +254,7 @@
   <object id="36" name="adult5" type="npc" gid="2" x="160" y="448" width="32" height="32">
    <properties>
     <property name="active" value="false"/>
-    <property name="defaultdirection" value="up"/>
+    <property name="defaultdirection" value="down"/>
     <property name="dialogue" value="dadult01"/>
     <property name="wander" value="false"/>
    </properties>
@@ -262,7 +262,7 @@
   <object id="37" name="adult6" type="npc" gid="2" x="128" y="448" width="32" height="32">
    <properties>
     <property name="active" value="false"/>
-    <property name="defaultdirection" value="up"/>
+    <property name="defaultdirection" value="down"/>
     <property name="dialogue" value="dadult01"/>
     <property name="wander" value="false"/>
    </properties>

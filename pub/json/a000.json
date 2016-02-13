@@ -326,7 +326,7 @@
                  "properties":
                     {
                      "active":"false",
-                     "defaultdirection":"up",
+                     "defaultdirection":"down",
                      "dialogue":"dadult01",
                      "wander":"false"
                     },
@@ -345,7 +345,7 @@
                  "properties":
                     {
                      "active":"false",
-                     "defaultdirection":"up",
+                     "defaultdirection":"down",
                      "dialogue":"dadult01",
                      "wander":"false"
                     },
@@ -364,7 +364,7 @@
                  "properties":
                     {
                      "active":"false",
-                     "defaultdirection":"up",
+                     "defaultdirection":"down",
                      "dialogue":"dadult01",
                      "wander":"false"
                     },
@@ -383,7 +383,7 @@
                  "properties":
                     {
                      "active":"false",
-                     "defaultdirection":"up",
+                     "defaultdirection":"down",
                      "dialogue":"dadult01",
                      "wander":"false"
                     },
@@ -402,7 +402,7 @@
                  "properties":
                     {
                      "active":"false",
-                     "defaultdirection":"up",
+                     "defaultdirection":"down",
                      "dialogue":"dadult01",
                      "wander":"false"
                     },
@@ -421,7 +421,7 @@
                  "properties":
                     {
                      "active":"false",
-                     "defaultdirection":"up",
+                     "defaultdirection":"down",
                      "dialogue":"dadult01",
                      "wander":"false"
                     },
