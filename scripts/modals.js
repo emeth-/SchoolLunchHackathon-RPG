@@ -277,6 +277,12 @@ function Modals () {
                 modal.html(choices).find('input').trigger('focus');
                 break;
 
+            // Input
+            case 'inputincome':
+                var choices = dialogue.label + '<br>$<input type="text" tabindex="0"> <select><option>Weekly</option><option>Bi-Weekly</option><option>2x Month</option><option>Monthly</option></select>';
+                modal.html(choices).find('input').trigger('focus');
+                break;
+
             // Dialogue
             case 'dialogue':
                 var

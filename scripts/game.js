@@ -6,7 +6,8 @@ Game = {
     activeNPC          : '',
     npcDialogueProgress: {},
     formData: {
-        'children': []
+        'children': [],
+        'adults': []
     },
     currentArea        : 'a000',
     currentDirection   : 'down',
