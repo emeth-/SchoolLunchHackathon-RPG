@@ -197,25 +197,25 @@
   </object>
   <object id="28" name="n002" type="npc" gid="2" x="704" y="192" width="32" height="32">
    <properties>
-    <property name="dialogue" value="d002"/>
+    <property name="dialogue" value="game_load"/>
     <property name="wander" value="false"/>
    </properties>
   </object>
   <object id="29" name="n003" type="npc" gid="2" x="608" y="288" width="32" height="32">
    <properties>
-    <property name="dialogue" value="d003"/>
+    <property name="dialogue" value="clerk_notready"/>
     <property name="wander" value="false"/>
    </properties>
   </object>
   <object id="30" name="n004" type="npc" gid="2" x="448" y="288" width="32" height="32">
    <properties>
-    <property name="dialogue" value="d004"/>
+    <property name="dialogue" value="clerk_notready"/>
     <property name="wander" value="false"/>
    </properties>
   </object>
   <object id="31" name="n005" type="npc" gid="2" x="352" y="192" width="32" height="32">
    <properties>
-    <property name="dialogue" value="d005"/>
+    <property name="dialogue" value="clerk_notready"/>
     <property name="wander" value="false"/>
    </properties>
   </object>

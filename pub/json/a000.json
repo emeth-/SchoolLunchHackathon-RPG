@@ -257,7 +257,7 @@
                  "name":"n002",
                  "properties":
                     {
-                     "dialogue":"d002",
+                     "dialogue":"game_load",
                      "wander":"false"
                     },
                  "rotation":0,
@@ -274,7 +274,7 @@
                  "name":"n003",
                  "properties":
                     {
-                     "dialogue":"d003",
+                     "dialogue":"clerk_notready",
                      "wander":"false"
                     },
                  "rotation":0,
@@ -291,7 +291,7 @@
                  "name":"n004",
                  "properties":
                     {
-                     "dialogue":"d004",
+                     "dialogue":"clerk_notready",
                      "wander":"false"
                     },
                  "rotation":0,
@@ -308,7 +308,7 @@
                  "name":"n005",
                  "properties":
                     {
-                     "dialogue":"d005",
+                     "dialogue":"clerk_notready",
                      "wander":"false"
                     },
                  "rotation":0,
