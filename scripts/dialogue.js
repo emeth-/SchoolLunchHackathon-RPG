@@ -555,11 +555,28 @@ Dialogue = {
                 }, 2000);
 
                 if (Game.children_left_to_fill_out <= 0) {
-                    setTimeout(function(){
-                        var newDialogue = Dialogue["step2_npcstart"];
-                        $('#n003').npc('talk', newDialogue);
-                        $('#n003').data('npc').dialogueId = "step2_start";
-                    }, 1000);
+                    all_foster_children = true;
+                    for(var o in Game.formData.children) {
+                        if (!Game.formData.children[o].foster_child) {
+                            all_foster_children = false;
+                        }
+                    }
+
+                    if (all_foster_children) {
+                        //skip to step 4
+                        setTimeout(function(){
+                            var newDialogue = Dialogue["step4_npcstart"];
+                            $('#n005').npc('talk', newDialogue);
+                            $('#n005').data('npc').dialogueId = "step4_start";
+                        }, 1000);
+                    }
+                    else {
+                        setTimeout(function(){
+                            var newDialogue = Dialogue["step2_npcstart"];
+                            $('#n003').npc('talk', newDialogue);
+                            $('#n003').data('npc').dialogueId = "step2_start";
+                        }, 1000);
+                    }
                 }
             }
         }
