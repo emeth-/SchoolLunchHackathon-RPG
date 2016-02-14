@@ -298,12 +298,21 @@ Dialogue = {
         end         : true,
         action: function(npc, value) {
             if (npc) {
-
-                setTimeout(function(){
-                    var newDialogue = Dialogue["step3_npcstart"];
-                    $('#n004').npc('talk', newDialogue);
-                    $('#n004').data('npc').dialogueId = "step3_start";
-                }, 1000);
+                if (Game.formData['case_number']) {
+                    //skip to step 4
+                    setTimeout(function(){
+                        var newDialogue = Dialogue["step4_npcstart"];
+                        $('#n005').npc('talk', newDialogue);
+                        $('#n005').data('npc').dialogueId = "step4_start";
+                    }, 1000);
+                }
+                else {
+                    setTimeout(function(){
+                        var newDialogue = Dialogue["step3_npcstart"];
+                        $('#n004').npc('talk', newDialogue);
+                        $('#n004').data('npc').dialogueId = "step3_start";
+                    }, 1000);
+                }
             }
         }
     },
