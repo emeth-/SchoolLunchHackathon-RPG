@@ -366,6 +366,31 @@ Dialogue = {
 
     'step3_i2': {
         type        : 'dialogue',
+        text        : "...",
+        dynamicText: function(){
+            return "You said there are "+Object.keys(Game.formData.adults).length+" adults and "+Object.keys(Game.formData.children).length+" children in your household, is this correct?";
+        },
+        goTo        : 'step3_i3'
+    },
+
+    'step3_i3': {
+        type    : 'choice',
+        choices : [
+            {
+                label       : 'Yes',
+                goTo        : 'step3_i4'
+            },
+
+            {
+                label       : 'No',
+                goTo        : 'step3_i1',
+            }
+        ]
+    },
+
+
+    'step3_i4': {
+        type        : 'dialogue',
         text        : "Excellent! I created avatars to represent each adult. Continue by talking to them!",
         emote       : 'happiness',
         end         : true

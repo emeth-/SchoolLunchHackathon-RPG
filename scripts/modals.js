@@ -253,6 +253,14 @@ function Modals () {
             npc.npc('emote', emote);
         }
 
+        if ('dynamicText' in dialogue) {
+            dialogue.text = dialogue.dynamicText();
+        }
+
+        if ('dynamicLabel' in dialogue) {
+            dialogue.label = dialogue.dynamicLabel();
+        }
+
         modal.data('modal')['dialogue'] = dialogue;
 
         switch (type) {
@@ -262,6 +270,9 @@ function Modals () {
                 var choices = '<ul class="choice">';
 
                 $.each(dialogue.choices, function (index, value) {
+                    if ('dynamicLabel' in value) {
+                        value.label = value.dynamicLabel();
+                    }
                     choices += '<li tabindex="0">' + value.label + '</li>'
                 });
 
