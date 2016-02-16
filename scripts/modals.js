@@ -254,11 +254,11 @@ function Modals () {
         }
 
         if ('dynamicText' in dialogue) {
-            dialogue.text = dialogue.dynamicText();
+            dialogue.text = dialogue.dynamicText(Game.activeNPC);
         }
 
         if ('dynamicLabel' in dialogue) {
-            dialogue.label = dialogue.dynamicLabel();
+            dialogue.label = dialogue.dynamicLabel(Game.activeNPC);
         }
 
         modal.data('modal')['dialogue'] = dialogue;
@@ -271,7 +271,7 @@ function Modals () {
 
                 $.each(dialogue.choices, function (index, value) {
                     if ('dynamicLabel' in value) {
-                        value.label = value.dynamicLabel();
+                        value.label = value.dynamicLabel(Game.activeNPC);
                     }
                     choices += '<li tabindex="0">' + value.label + '</li>'
                 });

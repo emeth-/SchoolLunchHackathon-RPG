@@ -185,6 +185,53 @@ Dialogue = {
 
     'ichi05': {
         type        : 'dialogue',
+        text        : "...",
+        dynamicText: function(npc){
+            var c = Game.formData.children[npc.data().npc.id];
+            recap_statement = "";
+            recap_statement += "My name is "+c.name+". ";
+            if (c.student) {
+                recap_statement += "I am a student. ";
+            }
+            else {
+                recap_statement += "I am not a student. ";
+            }
+            if (c.foster_child) {
+                recap_statement += "I am a foster child. ";
+            }
+            else {
+                recap_statement += "I am not a foster child. ";
+            }
+            if (c.homeless) {
+                recap_statement += "I am homeless / a migrate / a runaway. ";
+            }
+            else {
+                recap_statement += "I am not homeless / a migrate / a runaway. ";
+            }
+            recap_statement += "Is this correct?";
+            return recap_statement;
+        },
+        goTo        : 'ichi06'
+    },
+
+    'ichi06': {
+        type    : 'choice',
+        emote   : 'think',
+        choices : [
+            {
+                label       : 'Yes',
+                goTo        : 'ichi07'
+            },
+
+            {
+                label       : 'No',
+                goTo        : 'ichi01'
+            }
+        ]
+    },
+
+    'ichi07': {
+        type        : 'dialogue',
         text        : "Thanks! I'm good to go!",
         end         : true,
         triggeredText: function(npc) {
