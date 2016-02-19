@@ -256,14 +256,16 @@ Dialogue = {
                 }, 2000);
 
                 if (Game.children_left_to_fill_out <= 0) {
-                    all_foster_children = true;
+                    all_foster_or_homeless_children = true;
                     for(var o in Game.formData.children) {
                         if (!Game.formData.children[o].foster_child) {
-                            all_foster_children = false;
+                            if (!Game.formData.children[o].homeless) {
+                                all_foster_or_homeless_children = false;
+                            }
                         }
                     }
 
-                    if (all_foster_children) {
+                    if (all_foster_or_homeless_children) {
                         //skip to step 4
                         setTimeout(function(){
                             var newDialogue = Dialogue["step4_npcstart"];
@@ -637,13 +639,132 @@ Dialogue = {
     },
 
     'step4_form8': {
+        type    : 'dialogue',
+        emote   : 'think',
+        label   : 'I certify (promise) that all information on this application is true and that all income is reported. I understand that this information is given in connection with the receipt of Federal funds, and that school officials may verify (check) the information. I am aware that if I purposely give false information, my children may lose meal benefits, and I may be prosecuted under applicable State and Federal laws.',
+        goTo    : 'step4_form9'
+    },
+
+    'step4_form9': {
         type    : 'input',
         emote   : 'think',
-        label   : 'Type in your name here, this will operate as your legal signature?',
-        goTo    : 'step4_end',
+        label   : 'Type in your name here, this will operate as your legal signature:',
+        goTo    : 'step4_form10',
         action: function(npc, value) {
             Game.formData['signature'] = value;
         }
+    },
+
+    'step4_form10': {
+        type    : 'dialogue',
+        emote   : 'think',
+        label   : 'We are required to ask for information about your childrenÕs race and ethnicity. This information is important and helps to make sure we are fully serving our community. Responding to this section is optional and does not affect your childrenÕs eligibility for free or reduced price meals.',
+        goTo    : 'step4_form11'
+    },
+
+    'step4_form11': {
+        type    : 'choice',
+        emote   : 'think',
+        choices : [
+            {
+                label       : 'I would NOT like to fill out this optional information.',
+                goTo        : 'step4_end'
+            },
+            {
+                label       : 'I would like to fill out this optional information.',
+                goTo        : 'step4_form12'
+            }
+        ]
+    },
+
+    'step4_form12': {
+        type    : 'choice',
+        emote   : 'think',
+        choices : [
+            {
+                label       : 'Ethnicity: Not Hispanic or Latino',
+                goTo        : 'step4_form13'
+            },
+            {
+                label       : 'Ethnicity: Hispanic or Latino',
+                goTo        : 'step4_form13'
+            }
+        ]
+    },
+
+    'step4_form13': {
+        type    : 'choice',
+        emote   : 'think',
+        choices : [
+            {
+                label       : 'Race: NOT American Indian or Alaskan Native',
+                goTo        : 'step4_form14'
+            },
+            {
+                label       : 'Race: American Indian or Alaskan Native',
+                goTo        : 'step4_form14'
+            }
+        ]
+    },
+
+    'step4_form14': {
+        type    : 'choice',
+        emote   : 'think',
+        choices : [
+            {
+                label       : 'Race: NOT Asian',
+                goTo        : 'step4_form15'
+            },
+            {
+                label       : 'Race: Asian',
+                goTo        : 'step4_form15'
+            }
+        ]
+    },
+
+    'step4_form15': {
+        type    : 'choice',
+        emote   : 'think',
+        choices : [
+            {
+                label       : 'Race: NOT Black or African American',
+                goTo        : 'step4_form16'
+            },
+            {
+                label       : 'Race: Black or African American',
+                goTo        : 'step4_form16'
+            }
+        ]
+    },
+
+    'step4_form16': {
+        type    : 'choice',
+        emote   : 'think',
+        choices : [
+            {
+                label       : 'Race: NOT Native Hawaiian or Other Pacific Islander',
+                goTo        : 'step4_form17'
+            },
+            {
+                label       : 'Race: Native Hawaiian or Other Pacific Islander',
+                goTo        : 'step4_form17'
+            }
+        ]
+    },
+
+    'step4_form17': {
+        type    : 'choice',
+        emote   : 'think',
+        choices : [
+            {
+                label       : 'Race: NOT White',
+                goTo        : 'step4_end'
+            },
+            {
+                label       : 'Race: White',
+                goTo        : 'step4_end'
+            }
+        ]
     },
 
     'step4_end': {
