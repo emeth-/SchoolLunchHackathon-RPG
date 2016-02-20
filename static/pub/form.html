@@ -30,10 +30,10 @@
                     data: JSON.stringify(Game.formData)
                 },
                 success: function(data) {
-                    console.log("SB***", data);
+                    console.log("form saved", data);
                 },
-                error: function (data) {
-                    console.log(123);
+                error: function (e) {
+                    console.log("error", e);
                 }
             });
         </script>
