@@ -419,7 +419,7 @@ Dialogue = {
         type        : 'dialogue',
         text        : "...",
         dynamicText: function(){
-            return "You said there are "+Object.keys(Game.adults_left_to_fill_out).length+" adults and "+Object.keys(Game.formData.children).length+" children in your household, is this correct?";
+            return "You said there are "+Game.adults_left_to_fill_out+" adults and "+Object.keys(Game.formData.children).length+" children in your household, is this correct?";
         },
         goTo        : 'step3_i3'
     },

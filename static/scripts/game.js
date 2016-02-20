@@ -2,12 +2,11 @@
 /** GAME ******************************************************************************************/
 
 Game = {
-    form_data          : {},
     activeNPC          : '',
     npcDialogueProgress: {},
     formData: {
-        'children': [],
-        'adults': []
+        'children': {},
+        'adults': {}
     },
     currentArea        : 'a000',
     currentDirection   : 'down',
