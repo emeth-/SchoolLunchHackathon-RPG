@@ -23,19 +23,22 @@
         <script src="js/vendor.min.js"></script>
         <script src="js/game.min.js"></script>
         <script>
-            jQuery.ajax({
-                type: "POST",
-                url: "/save_form",
-                data: {
-                    data: JSON.stringify(Game.formData)
-                },
-                success: function(data) {
-                    console.log("form saved", data);
-                },
-                error: function (e) {
-                    console.log("error", e);
-                }
-            });
+            function submit_form() {
+                jQuery.ajax({
+                    type: "POST",
+                    url: "/save_form",
+                    data: {
+                        data: JSON.stringify(Game.formData)
+                    },
+                    success: function(data) {
+                        alert("Form submitted! Close out when done.")
+                        console.log("form saved", data);
+                    },
+                    error: function (e) {
+                        console.log("error", e);
+                    }
+                });
+            }
         </script>
     </body>
 </html>

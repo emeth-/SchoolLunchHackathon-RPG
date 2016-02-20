@@ -50,6 +50,13 @@ function Modals () {
                 
                 case (activeElement.is('input')) :
                     if (Game.pressedKeys[13]) { //enter key only
+
+                        var value = activeElement.val();
+
+                        if (activeElement.hasClass('inputincome')) {
+                            value = activeElement.parent().find('input').val() + " " + activeElement.parent().find('select').val();
+                        }
+
                         if (dialogue.action) {
                             dialogue.action(modal.data('modal')['npc'], activeElement.val());
                         }
@@ -290,7 +297,7 @@ function Modals () {
 
             // Input
             case 'inputincome':
-                var choices = dialogue.label + '<br>$<input type="text" tabindex="0"> <select><option>Weekly</option><option>Bi-Weekly</option><option>2x Month</option><option>Monthly</option></select>';
+                var choices = dialogue.label + '<br>$<input class="inputincome" type="text" tabindex="0"> <select class="inputincome"><option>Weekly</option><option>Bi-Weekly</option><option>2x Month</option><option>Monthly</option></select>';
                 modal.html(choices).find('input').trigger('focus');
                 break;
 
