@@ -1,0 +1,489 @@
+
+@import "_base";
+
+/** BASE ******************************************************************************************/
+
+* {
+    outline: 0;
+}
+
+html, body {
+    font-size: 100%;
+    line-height: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    @include font-size($base-font-size);
+    @include line-height($base-line-height);
+
+    background-color: #000000;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+}
+
+a {
+    color: $link-color;
+
+    &:hover {
+        color: $link-hover-color;
+    }
+}
+
+/** DEBUG *****************************************************************************************/
+
+#debug { // div
+    #x-axis { // div
+        background-color: $color-red;
+        height: 1px;
+        left: 0px;
+        opacity: $collisionOpacity;
+        position: fixed;
+        top: 50%;
+        width: 100%;
+        z-index: 9999;
+    }
+
+    #y-axis { // div
+        background-color: $color-red;
+        height: 100%;
+        left: 50%;
+        opacity: $collisionOpacity;
+        position: fixed;
+        top: 0px;
+        width: 1px;
+        z-index: 9999;
+    }
+}
+
+/** LOADING ***************************************************************************************/
+
+#loading { // div
+    @include font-size($window-font-size);
+    @include line-height($window-line-height);
+
+    bottom: 20px;
+    color: $color-white;
+    font-family: 'Minecraftia';
+    position: absolute;
+    right: 20px;
+    z-index: 10000;
+}
+
+/** MODALS ****************************************************************************************/
+
+#modals { // div
+    position: relative;
+    z-index: 10000;
+
+    .modal { // div
+        border-style: solid;
+        color: $color-mine-shaft;
+        font-family: 'Minecraftia';
+        min-height: 0px;
+        position: absolute;
+        width: 0px;
+
+        a {
+            text-decoration: none;
+        }
+
+        .choice { // ul
+            list-style: none outside none;
+            margin: 0px;
+            padding: 0px;
+
+            li {
+                padding: 5px;
+
+                &:focus {
+                    @include border-radius(2px);
+
+                    background-color: $color-rum;
+                    color: $color-white;
+                }
+            }
+        }
+
+        .icon {
+            bottom: 0;
+            position: absolute;
+            right: 0;
+        }
+
+        &.dialogue {
+            @include font-size($window-font-size);
+            @include line-height($window-line-height);
+
+            -webkit-border-image: url(/static/pub/img/modal-border.gif) 16 repeat;
+            -webkit-border-image-outset: 10px;
+            -moz-border-image: url(/static/pub/img/modal-border.gif) 16 repeat;
+            -moz-border-image-outset: 10px;
+            -ms-border-image-outset: 10px;
+            -o-border-image: url(/static/pub/img/modal-border.gif) 16 repeat;
+            -o-border-image-outset: 10px;
+            background-color: $color-alabaster;
+            border-image: url(/static/pub/img/modal-border.gif) 16 repeat;
+            border-image-outset: 10px;
+            border-width: 16px;
+        }
+
+        &.notification {
+            @include font-size($base-font-size);
+            @include line-height($base-line-height);
+
+            -webkit-border-image: url(/static/pub/img/notification-border.gif) 16 repeat;
+            -webkit-border-image-outset: 6px;
+            -moz-border-image: url(/static/pub/img/notification-border.gif) 16 repeat;
+            -moz-border-image-outset: 6px;
+            -ms-border-image-outset: 6px;
+            -o-border-image: url(/static/pub/img/notification-border.gif) 16 repeat;
+            -o-border-image-outset: 6px;
+            background-color: $color-alabaster;
+            border-image: url(/static/pub/img/notification-border.gif) 16 repeat;
+            border-image-outset: 6px;
+            border-width: 16px;
+        }
+    }
+}
+
+/** ICONS *****************************************************************************************/
+
+.icon { // div
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &.continue {
+        background-image: url(/static/pub/img/icon-continue.gif);
+        height: 16px;
+        width: 16px;
+    }
+}
+
+/** NPCS ******************************************************************************************/
+
+.npc {
+    background-color: rgba(255, 0, 0, $collisionOpacity);
+    height: 32px;
+    position: absolute;
+    width: 32px;
+
+    .npc-sprite {
+        background-repeat: no-repeat;
+        background-position: left top;
+        height: 40px;
+        position: absolute;
+        top: -8px;
+        width: 32px;
+    }
+
+    .emote {
+        background-position: left top;
+        background-repeat: no-repeat;
+        height: 32px;
+        position: relative;
+        top: -32px;
+        width: 30px;
+
+        &.happiness {
+            background-image: url(/static/pub/img/emote-happiness.gif);
+        }
+
+        &.love {
+            background-image: url(/static/pub/img/emote-love.gif);
+        }
+
+        &.question {
+            background-image: url(/static/pub/img/emote-question.gif);
+        }
+
+        &.sadness {
+            background-image: url(/static/pub/img/emote-sadness.gif);
+        }
+
+        &.talkAngry {
+            background-image: url(/static/pub/img/emote-talk-angry.gif);
+        }
+
+        &.talkHappy {
+            background-image: url(/static/pub/img/emote-talk-happy.gif);
+        }
+
+        &.think {
+            background-image: url(/static/pub/img/emote-think.gif);
+        }
+    }
+}
+
+@for $i from 0 through $adult-limit {
+    $leading: "";
+
+    $leading: $leading + $i;
+
+    #adult#{$leading} {
+        .npc-sprite {
+            background-image: url(/static/pub/img/n000-down.gif);
+
+            &.down {
+                background-image: url(/static/pub/img/n000-down.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n000-down-walking.gif);
+                }
+            }
+
+            &.left {
+                background-image: url(/static/pub/img/n000-left.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n000-left-walking.gif);
+                }
+            }
+
+            &.right {
+                -webkit-transform:scaleX(-1);
+                -moz-transform:scaleX(-1);
+                -ms-transform:scaleX(-1);
+                -o-transform:scaleX(-1);
+                transform:scaleX(-1);
+
+                background-image: url(/static/pub/img/n000-left.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n000-left-walking.gif);
+                }
+            }
+
+            &.up {
+                background-image: url(/static/pub/img/n000-up.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n000-up-walking.gif);
+                }
+            }
+        }
+    }
+}
+
+@for $i from 0 through $children-limit {
+    $leading: "";
+
+    $leading: $leading + $i;
+
+    #child#{$leading} {
+        .npc-sprite {
+            background-image: url(/static/pub/img/n002-down.gif);
+
+            &.down {
+                background-image: url(/static/pub/img/n002-down.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n002-down-walking.gif);
+                }
+            }
+
+            &.left {
+                background-image: url(/static/pub/img/n002-left.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n002-left-walking.gif);
+                }
+            }
+
+            &.right {
+                -webkit-transform:scaleX(-1);
+                -moz-transform:scaleX(-1);
+                -ms-transform:scaleX(-1);
+                -o-transform:scaleX(-1);
+                transform:scaleX(-1);
+
+                background-image: url(/static/pub/img/n002-left.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n002-left-walking.gif);
+                }
+            }
+
+            &.up {
+                background-image: url(/static/pub/img/n002-up.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n002-up-walking.gif);
+                }
+            }
+        }
+    }
+}
+
+@for $i from 0 through $npc-limit {
+    $leading: "00";
+
+    $leading: $leading + $i;
+
+    #n#{$leading} {
+        .npc-sprite {
+            background-image: url(/static/pub/img/n001-down.gif);
+
+            &.down {
+                background-image: url(/static/pub/img/n001-down.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n001-down-walking.gif);
+                }
+            }
+
+            &.left {
+                background-image: url(/static/pub/img/n001-left.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n001-left-walking.gif);
+                }
+            }
+
+            &.right {
+                -webkit-transform:scaleX(-1);
+                -moz-transform:scaleX(-1);
+                -ms-transform:scaleX(-1);
+                -o-transform:scaleX(-1);
+                transform:scaleX(-1);
+
+                background-image: url(/static/pub/img/n001-left.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n001-left-walking.gif);
+                }
+            }
+
+            &.up {
+                background-image: url(/static/pub/img/n001-up.gif);
+
+                &.walking {
+                    background-image: url(/static/pub/img/n001-up-walking.gif);
+                }
+            }
+        }
+    }
+}
+
+/** PLAYER ****************************************************************************************/
+
+#player { // div
+    background-color: rgba(255, 0, 0, $collisionOpacity);
+    height: 32px;
+    position: absolute;
+    width: 32px;
+
+    #player-sprite {
+        background-image: url(/static/pub/img/rene-down.gif);
+        background-repeat: no-repeat;
+        background-position: left top;
+        height: 40px;
+        position: absolute;
+        top: -8px;
+        width: 32px;
+
+        &.down {
+            background-image: url(/static/pub/img/rene-down.gif);
+
+            &.walking {
+                background-image: url(/static/pub/img/rene-down-walking.gif);
+            }
+        }
+
+        &.left {
+            background-image: url(/static/pub/img/rene-left.gif);
+
+            &.walking {
+                background-image: url(/static/pub/img/rene-left-walking.gif);
+            }
+        }
+
+        &.right {
+            -webkit-transform:scaleX(-1);
+            -moz-transform:scaleX(-1);
+            -ms-transform:scaleX(-1);
+            -o-transform:scaleX(-1);
+            transform:scaleX(-1);
+
+            background-image: url(/static/pub/img/rene-left.gif);
+
+            &.walking {
+                background-image: url(/static/pub/img/rene-left-walking.gif);
+            }
+        }
+
+        &.up {
+            background-image: url(/static/pub/img/rene-up.gif);
+
+            &.walking {
+                background-image: url(/static/pub/img/rene-up-walking.gif);
+            }
+        }
+    }
+}
+
+/** TRANSITION ************************************************************************************/
+
+#transition { // div
+    background-color: $color-black;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+}
+
+/** STAGE *****************************************************************************************/
+
+#stage { // div
+    overflow: hidden;
+    position: absolute;
+
+    // Collision
+    #collisions { // div
+        position: relative;
+        z-index: 2;
+
+        .collision { // div
+            background-color: $color-red;
+            height: 32px;
+            opacity: $collisionOpacity;
+            position: absolute;
+            width: 32px;
+        }
+    }
+
+    // Objects
+    #objects {
+        position: relative;
+        z-index: 1;
+
+        .object { // div
+            height: 32px;
+            position: absolute;
+            width: 32px;
+
+            &.doorway,
+            &.stairs {
+                background-color: $color-green;
+                opacity: $collisionOpacity;
+            }
+        }
+    }
+
+    // Tiles
+    #tiles {
+        position: relative;
+
+        .tile { // div
+            background-image: url(/static/pub/img/tile-map.gif);
+            background-repeat: no-repeat;
+            background-position: left top;
+            height: 32px;
+            position: absolute;
+            width: 32px;
+        }
+    }
+}

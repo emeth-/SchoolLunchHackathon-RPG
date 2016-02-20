@@ -1,0 +1,319 @@
+
+/** GAME ******************************************************************************************/
+
+Game = {
+    form_data          : {},
+    activeNPC          : '',
+    npcDialogueProgress: {},
+    formData: {
+        'children': [],
+        'adults': []
+    },
+    currentArea        : 'a000',
+    currentDirection   : 'down',
+    currentFocus       : '',
+    domain             : location.protocol + '//' + location.host + '/static/pub/',
+    directions         : {
+        up      : 'up',
+        down    : 'down',
+        left    : 'left',
+        right   : 'right'
+    },
+    fps                : 60,
+    gridCellSize       : 32,
+    loading            : 0,
+    preloading         : false,
+    pressedKeys        : [],
+    prevArea           : 'a000',
+
+    /**
+     *
+     */
+    calculateZindex : function (object) {
+        object.css({
+            zIndex: object.position().top
+        });
+    },
+
+    /**
+     *
+     */
+    checkCollisions : function (object, direction) {
+        var
+            objectCoord = Game.getCoordinates(object),
+            offsetL     = 0,
+            offsetT     = 0;
+
+        switch (direction) {
+
+            // Up
+            case Game.directions.up:
+                offsetT = -1;
+
+                break;
+
+            // Down
+            case Game.directions.down:
+                offsetT = 1;
+
+                break;
+
+            // Left
+            case Game.directions.left:
+                offsetL = -1;
+
+                break;
+
+            // Right
+            case Game.directions.right:
+                offsetL = 1;
+
+                break;
+        }
+
+        if (Stage.collisionsMap[objectCoord.y + offsetT]) {
+            if (Stage.collisionsMap[objectCoord.y + offsetT][objectCoord.x + offsetL]) {
+                return Stage.collisionsMap[objectCoord.y + offsetT][objectCoord.x + offsetL];
+            }
+        }
+
+        if (Stage.portalsMap[objectCoord.y + offsetT]) {
+            if (Stage.portalsMap[objectCoord.y + offsetT][objectCoord.x + offsetL]) {
+                return Stage.portalsMap[objectCoord.y + offsetT][objectCoord.x + offsetL];
+            }
+        }
+
+        if (Stage.npcsMap[objectCoord.y + offsetT]) {
+            if (Stage.npcsMap[objectCoord.y + offsetT][objectCoord.x + offsetL]) {
+                return Stage.npcsMap[objectCoord.y + offsetT][objectCoord.x + offsetL];
+            }
+        }
+
+        //if (Stage.playersMap[objectCoord.y + offsetT]) {
+        //    if (Stage.playersMap[objectCoord.y + offsetT][objectCoord.x + offsetL]) {
+        //        return Stage.playersMap[objectCoord.y + offsetT][objectCoord.x + offsetL];
+        //    }
+        //}
+
+        return false;
+    },
+
+    /**
+     *
+     */
+    getCoordinates : function (object) {
+        var objectPos = object.position();
+
+        return {
+            'x': objectPos.left / Game.gridCellSize,
+            'y': objectPos.top / Game.gridCellSize
+        }
+    },
+
+    /**
+     *
+     */
+    moveObject : function (object, direction, callback) {
+        var
+            animateOptions  = {},
+            objectPos       = object.position(),
+            left            = objectPos.left,
+            top             = objectPos.top;
+
+        switch (direction) {
+
+            // Up
+            case Game.directions.up:
+                animateOptions = {
+                    top: top - Game.gridCellSize
+                }
+
+                break;
+
+            // Down
+            case Game.directions.down:
+                animateOptions = {
+                    top: top + Game.gridCellSize
+                }
+
+                break;
+
+            // Left
+            case Game.directions.left:
+                animateOptions = {
+                    left: left - Game.gridCellSize
+                }
+
+                break;
+
+            // Right
+            case Game.directions.right:
+                animateOptions = {
+                    left: left + Game.gridCellSize
+                }
+
+                break;
+
+        }
+
+        object.stop().animate(
+            animateOptions,
+            180,
+            'linear',
+            function () {
+                Game.calculateZindex(object);
+
+                if (callback) {
+                    callback();
+                }
+            }
+        );
+    },
+
+    /**
+     *
+     */
+    preload : function () {
+        var preload = [
+                // Tile Map
+                '/static/pub/img/tile-map.gif',
+
+                // Player
+                '/static/pub/img/rene-down.gif',
+                '/static/pub/img/rene-down-walking.gif',
+                '/static/pub/img/rene-left.gif',
+                '/static/pub/img/rene-left-walking.gif',
+                '/static/pub/img/rene-up.gif',
+                '/static/pub/img/rene-up-walking.gif',
+
+                // NPC
+                '/static/pub/img/dude.gif',
+
+                // Modals
+                '/static/pub/img/modal-border.gif',
+
+                // Emotes
+                '/static/pub/img/emote-happiness.gif',
+                '/static/pub/img/emote-love.gif',
+                '/static/pub/img/emote-question.gif',
+                '/static/pub/img/emote-sadness.gif',
+                '/static/pub/img/emote-talk-angry.gif',
+                '/static/pub/img/emote-talk-happy.gif',
+                '/static/pub/img/emote-think.gif',
+
+                // Icons
+                '/static/pub/img/icon-continue.gif'
+            ],
+            outstanding = preload.length;
+
+        Game.preloading = true;
+
+        if ($('#loading').length == 0) {
+            $('body').append('<div id="loading">Loading...</div>');
+        }
+
+        $.each(preload, function (index, value) {
+            Game.loading = true;
+
+            $.ajax({
+                type    : 'GET',
+                url     : value
+            }).done(function () {
+                // Do nothing
+            }).fail(function () {
+                // Do nothing
+            }).always(function () {
+                outstanding--;
+
+                if (outstanding === 0) {
+                    Game.loading = false;
+
+                    Game.start();
+                }
+            });
+        });
+    },
+
+    /**
+     *
+     */
+    start : function () {
+        setInterval(function () {
+            Game.update();
+        }, 1000 / Game.fps);
+
+        Stage.init('a000');
+    },
+
+    /**
+     *
+     */
+    update : function () {
+        if (Game.loading) {
+            if ($('#loading').length == 0) {
+                $('body').append('<div id="loading">Loading...</div>');
+            }
+        } else {
+            $('#loading').remove();
+        }
+
+        if ($('.modal').length > 0) {
+            $.modals.checkButtons();
+        }
+
+        if ($('#player').length > 0) {
+            $.player.checkButtons();
+        }
+
+        Stage.checkButtons();
+    }
+};
+
+/** BINDINGS **************************************************************************************/
+
+var game_keys = [38,37,39,40,32,13]; //Arrow keys, spacebar, enter
+$(document).on('keydown', function (event) {
+    var key = event.keyCode || event.which;
+    if (key in game_keys) {
+        event.preventDefault();
+    }
+    Game.pressedKeys[event.keyCode] = true;
+});
+
+$(document).on('keyup', function (event) {
+
+    var key = event.keyCode || event.which;
+    if (key in game_keys) {
+        event.preventDefault();
+    }
+    Game.pressedKeys[event.keyCode]     = false;
+    $.modals.allowPress                 = true;
+    $.player.allowPress                 = true;
+});
+
+function trigger_beginning() {
+    var newDialogue = Dialogue[$('#n002').data('npc')['dialogueId']];
+    if ('triggeredText' in newDialogue) {
+        newDialogue.triggeredText($('#n002').data('npc'));
+    }
+    $('#n002').npc('talk', newDialogue);
+
+    //$.modals.create(
+    //    {
+    //        height  : 16,
+    //        width   : '25%'
+    //    },
+    //    {
+    //        left    : 20 + 3, // The 3 is half the border-image-outset value
+    //        top     : $(window).height() - 68 - 3 // The 3 is half the border-image-outset value
+    //    },
+    //    Dialogue['help1']
+    //);
+}
+
+/** GAME START! ***********************************************************************************/
+
+//
+$(document).on('ready', function () {
+    Game.preload();
+});

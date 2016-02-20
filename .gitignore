@@ -6,3 +6,4 @@
 ## Filename Patterns
 .DS_Store
 /pub/js/vendor.min.js
+*.pyc
