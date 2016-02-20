@@ -7,3 +7,4 @@
 .DS_Store
 /pub/js/vendor.min.js
 *.pyc
+db.sqlite3

@@ -1,15 +1,12 @@
 from django.db import models
 
-class Fish(models.Model):
-    name = models.CharField(max_length=255, default='')
-
+class CompletedForm(models.Model):
+    data = models.TextField()
     created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
-    modified = models.DateTimeField(auto_now=True, blank=True, null=True)
-
     def __unicode__(self):
-        return u'%s' % (self.name)
+        return u'%s' % (self.created)
 
     class Meta:
-        verbose_name = 'Fish'
-        verbose_name_plural = 'Fishes'
+        verbose_name = 'CompletedForm'
+        verbose_name_plural = 'CompletedForms'
         app_label = "api"
