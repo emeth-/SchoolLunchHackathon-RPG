@@ -48,7 +48,7 @@ function Modals () {
                     }
                     break;
                 
-                case (activeElement.is('input')) :
+                case (activeElement.is('input') || activeElement.hasClass('inputincome')) :
                     if (Game.pressedKeys[13]) { //enter key only
 
                         var value = activeElement.val();

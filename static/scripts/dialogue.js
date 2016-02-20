@@ -467,11 +467,9 @@ Dialogue = {
         goTo    : 'dadult04',
         label : 'What income do I get from work?',
         action: function(npc, value) {
-            var npc_id = npc.data()['npc'].id;
-            if (!(npc_id in Game.formData['adults'])) {
-                Game.formData['adults'][npc_id] = {};
+            if (npc && value) {
+                Game.formData['adults'][npc.data()['npc'].id]['work_income'] = value;
             }
-            Game.formData['adults'][npc_id]['work_income'] = value;
         }
     },
 
@@ -480,11 +478,9 @@ Dialogue = {
         goTo    : 'dadult05',
         label : 'What income do I get from Public Assistance/Child Support/Alimony?',
         action: function(npc, value) {
-            var npc_id = npc.data()['npc'].id;
-            if (!(npc_id in Game.formData['adults'])) {
-                Game.formData['adults'][npc_id] = {};
+            if (npc && value) {
+                Game.formData['adults'][npc.data()['npc'].id]['public_assistance_income'] = value;
             }
-            Game.formData['adults'][npc_id]['public_assistance_income'] = value;
         }
     },
 
@@ -493,11 +489,9 @@ Dialogue = {
         goTo    : 'dadult06',
         label : 'What income do I get from Pensions/Retirement/All Other Sources?',
         action: function(npc, value) {
-            var npc_id = npc.data()['npc'].id;
-            if (!(npc_id in Game.formData['adults'])) {
-                Game.formData['adults'][npc_id] = {};
+            if (npc && value) {
+                Game.formData['adults'][npc.data()['npc'].id]['pension_income'] = value;
             }
-            Game.formData['adults'][npc_id]['pension_income'] = value;
         }
     },
 
@@ -785,7 +779,10 @@ Dialogue = {
         emote       : 'happiness',
         end         : true,
         action: function(npc, value) {
-            submit_form();
+            if (!Game.formsub) {
+                Game.formsub = true;
+                submit_form();
+            }
         }
     },
 }

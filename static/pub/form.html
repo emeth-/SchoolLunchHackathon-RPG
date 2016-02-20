@@ -31,8 +31,8 @@
                         data: JSON.stringify(Game.formData)
                     },
                     success: function(data) {
-                        alert("Form submitted! Close out when done.")
                         console.log("form saved", data);
+                        window.location.href="completed.html";
                     },
                     error: function (e) {
                         console.log("error", e);
