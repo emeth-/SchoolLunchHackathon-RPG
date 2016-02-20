@@ -28,7 +28,7 @@ def save_form(request):
 
 def get_completed_forms(request):
     completed_forms = []
-    for c in CompletedForm.objects.all():
+    for c in CompletedForm.objects.all().order_by('-created'):
         try:
             completed_forms.append({
                 "data": json.loads(c.data),

@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>E.A.T. School Lunch</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+
+    <div class="container">
+
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h3><strong><em>Completed Forms</em></strong></h3>
+<p id='forms'></p>
+
+
+
+
+
+
+
+
+      </div>
+
+    </div> <!-- /container -->
+
+    <script src="js/vendor.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script>
+        jQuery.ajax({
+            type: "POST",
+            url: "/get_completed_forms",
+            data: { },
+            success: function(data) {
+                var htmlz = "<ul>";
+                for (var i=0; i<data.data.length; i++) {
+                    htmlz += "<li>"+moment(data.data[i].created+"Z").format("dddd, MMMM Do YYYY, h:mm:ss a")+' <a class="btn btn-sm btn-primary" href="form.html" role="button">Download</a></li>';
+                }
+                htmlz += "</ul>";
+                $('#forms').html(htmlz);
+                console.log("forms", data);
+            },
+            error: function (e) {
+                console.log("error", e);
+            }
+        });
+    </script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
