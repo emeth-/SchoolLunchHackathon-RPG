@@ -390,11 +390,22 @@ Dialogue = {
 
     'step3_start': {
         type        : 'dialogue',
-        text        : "We're going to finish establishing the size of your household here, by gathering information on the adults.",
-        goTo        : 'step3_i1'
+        text        : "We're going to finish gathering details about your household here.",
+        goTo        : 'step3_i1a'
     },
 
-    'step3_i1': {
+    'step3_i1a': {
+        type    : 'inputincome',
+        goTo    : 'step3_i1b',
+        label : 'How much income do ALL the children you entered earlier earn?',
+        action: function(npc, value) {
+            if (npc && value) {
+                Game.formData['childrenincome'] = value;
+            }
+        }
+    },
+
+    'step3_i1b': {
         type    : 'input',
         emote   : 'think',
         label   : 'How many adults are in your household?',
@@ -430,7 +441,7 @@ Dialogue = {
 
             {
                 label       : 'No',
-                goTo        : 'step3_i1',
+                goTo        : 'step3_i1b',
             }
         ]
     },

@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>E.A.T. School Lunch</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+
+    <div class="container">
+
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h3><strong><em>Completed Form</em></strong></h3>
+
+        <h4>Date:</h4>
+        <span id='created'>
+            March 21, 2013 yada yada
+        </span>
+
+        <h4>Children:</h4>
+        <span id='childrenlist'>
+        Bob C. Dole - Student, Foster Child, Homeless/Migrant/Runaway<br>
+        Frank S. Sinatra - Foster Child<br>
+        </span>
+        <h4>Assistance Program Participation:</h4>
+        <span id='assistanceprogram'>
+            Yes, Case Number 123213
+        </span>
+
+        <h4>Child Income:</h4>
+        <span id='childincome'>
+            $123,123 Weekly
+        </span>
+
+        <h4>Adult Household Members:</h4>
+        <ul>
+            <li>Mike Burke</li>
+            <ul>
+                <li>Earning From Work: $123,123 Weekly</li>
+                <li>Public Assistance/Child Support/Alimony: $123,123 Monthly</li>
+                <li>Pensions/Retirement/All Other Income: $123,123 Monthly</li>
+            </ul>
+
+            <li>Mike Burke</li>
+            <ul>
+                <li>Earning From Work: $123,123 Weekly</li>
+                <li>Public Assistance/Child Support/Alimony: $123,123 Monthly</li>
+                <li>Pensions/Retirement/All Other Income: $123,123 Monthly</li>
+            </ul>
+            
+
+        </ul>
+
+        <h4>Form Completer Information</h4>
+        <b>Last 4 Digits of SSN:</b> 3333<br>
+        <b>Street Address:</b> 801 S. Calmgrove<br>
+        <b>City:</b> Glendora<br>
+        <b>State:</b> CA<br>
+        <b>Zip:</b> 91740<br>
+        <b>Phone:</b> 9097902903<br>
+        <b>Email:</b> bobdole@gmail.com<br>
+        <b>Printed Name:</b> Bob Dole<br>
+        <b>Signature:</b> Bob Dole (IP=217.12.21.32, Time=12/12/12 12:00am)<br>
+
+        <h4>Optional Child Information</h4>
+        <b>Ethnicity:</b> [Only if set]<br>
+        <b>Race:</b> [Only if set]<br>
+        
+        
+
+
+
+
+
+
+      </div>
+
+    </div> <!-- /container -->
+
+    <script src="js/vendor.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script>
+        function requestGET(val) {
+            var result = "Not found",
+                tmp = [];
+            location.search
+            //.replace ( "?", "" )
+            // this is better, there might be a question mark inside
+            .substr(1)
+                .split("&")
+                .forEach(function (item) {
+                tmp = item.split("=");
+                if (tmp[0] === val) result = decodeURIComponent(tmp[1]);
+            });
+            return result;
+        }
+
+        jQuery.ajax({
+            type: "POST",
+            url: "/get_completed_forms",
+            data: {
+                id: requestGET('id')
+            },
+            success: function(data) {
+                var formdata = data.data[0].data;
+                console.log(formdata);
+                $('#created').html(moment(data.data[0].created+"Z").format("dddd, MMMM Do YYYY, h:mm:ss a"));
+            },
+            error: function (e) {
+                console.log("error", e);
+            }
+        });
+    </script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+
+    </body>
+</html>
