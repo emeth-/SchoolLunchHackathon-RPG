@@ -299,7 +299,9 @@ Dialogue = {
         emote       : 'think',
         end         : true,
         action      : function(npc) {
-            if (npc) {
+            if (npc && !npc.data().npc['frozen']) {
+                npc.data().npc['frozen'] = true;
+
                 var move_directions = [];
 
                 move_directions.push('down');
@@ -379,7 +381,8 @@ Dialogue = {
         emote       : 'think',
         end         : true,
         action      : function(npc) {
-            if (npc) {
+            if (npc && !npc.data().npc['frozen']) {
+                npc.data().npc['frozen'] = true;
                 var move_directions = [];
 
                 move_directions.push('down');
@@ -557,7 +560,8 @@ Dialogue = {
         emote       : 'think',
         end         : true,
         action      : function(npc) {
-            if (npc) {
+            if (npc && !npc.data().npc['frozen']) {
+                npc.data().npc['frozen'] = true;
                 var move_directions = [];
 
                 move_directions.push('left');
