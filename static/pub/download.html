@@ -65,8 +65,8 @@
         <b>Signature:</b> <span id='signature'>Bob Dole (IP=217.12.21.32, Time=12/12/12 12:00am)</span><br>
 
         <h4>Optional Child Information</h4>
-        <b>Ethnicity:</b> <span id='ssn'>[Only if set]</span><br>
-        <b>Race:</b> <span id='ssn'>[Only if set]</span><br>
+        <b>Ethnicity:</b> <span id='ethnicity'>[Only if set]</span><br>
+        <b>Race:</b> <span id='race'>[Only if set]</span><br>
         
         
 
@@ -173,6 +173,66 @@
                 $('#printedname').html(formdata.printedname);
 
                 $('#signature').html(formdata.signature + " (IP="+data.data[0].ipaddress+", Time="+createddate+")");
+
+
+                var ethhtml = "Declined to state";
+                if ('ethnicity_hispanic' in formdata) {
+                    ethhtml = "";
+                    var checked;
+
+                    checked = "";
+                    if (formdata.ethnicity_hispanic) {
+                        checked = " checked";
+                    }
+                    ethhtml += '<input type="checkbox"'+checked+' disabled="disabled"> Hispanic or Latino';
+
+                    checked = "";
+                    if (!formdata.ethnicity_hispanic) {
+                        checked = " checked";
+                    }
+                    ethhtml += '<input type="checkbox"'+checked+' disabled="disabled"> Not Hispanic or Latino';
+                }
+                
+                $("#ethnicity").html(ethhtml)
+
+
+                var racehtml = "Declined to state";
+                if ('race_american_indian' in formdata) {
+                    racehtml = "";
+                    var checked;
+
+                    checked = "";
+                    if (formdata.race_american_indian) {
+                        checked = " checked";
+                    }
+                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> American Indian or Alaskan Native';
+
+                    checked = "";
+                    if (formdata.race_asian) {
+                        checked = " checked";
+                    }
+                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> Asian';
+
+                    checked = "";
+                    if (formdata.race_black) {
+                        checked = " checked";
+                    }
+                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> Black or African American';
+
+                    checked = "";
+                    if (formdata.race_hawaiian) {
+                        checked = " checked";
+                    }
+                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> Native Hawaiian or Other Pacific Islander';
+
+                    checked = "";
+                    if (formdata.race_white) {
+                        checked = " checked";
+                    }
+                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> White';
+                }
+
+                $("#race").html(racehtml)
 
             },
             error: function (e) {

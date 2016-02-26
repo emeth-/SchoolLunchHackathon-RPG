@@ -710,11 +710,17 @@ Dialogue = {
         choices : [
             {
                 label       : 'Ethnicity: Not Hispanic or Latino',
-                goTo        : 'step4_form13'
+                goTo        : 'step4_form13',
+                action: function(npc, value) {
+                    Game.formData['ethnicity_hispanic'] = false;
+                }
             },
             {
                 label       : 'Ethnicity: Hispanic or Latino',
-                goTo        : 'step4_form13'
+                goTo        : 'step4_form13',
+                action: function(npc, value) {
+                    Game.formData['ethnicity_hispanic'] = true;
+                }
             }
         ]
     },
@@ -725,11 +731,17 @@ Dialogue = {
         choices : [
             {
                 label       : 'Race: NOT American Indian or Alaskan Native',
-                goTo        : 'step4_form14'
+                goTo        : 'step4_form14',
+                action: function(npc, value) {
+                    Game.formData['race_american_indian'] = false;
+                }
             },
             {
                 label       : 'Race: American Indian or Alaskan Native',
-                goTo        : 'step4_form14'
+                goTo        : 'step4_form14',
+                action: function(npc, value) {
+                    Game.formData['race_american_indian'] = true;
+                }
             }
         ]
     },
@@ -740,11 +752,17 @@ Dialogue = {
         choices : [
             {
                 label       : 'Race: NOT Asian',
-                goTo        : 'step4_form15'
+                goTo        : 'step4_form15',
+                action: function(npc, value) {
+                    Game.formData['race_asian'] = false;
+                }
             },
             {
                 label       : 'Race: Asian',
-                goTo        : 'step4_form15'
+                goTo        : 'step4_form15',
+                action: function(npc, value) {
+                    Game.formData['race_asian'] = true;
+                }
             }
         ]
     },
@@ -755,11 +773,17 @@ Dialogue = {
         choices : [
             {
                 label       : 'Race: NOT Black or African American',
-                goTo        : 'step4_form16'
+                goTo        : 'step4_form16',
+                action: function(npc, value) {
+                    Game.formData['race_black'] = false;
+                }
             },
             {
                 label       : 'Race: Black or African American',
-                goTo        : 'step4_form16'
+                goTo        : 'step4_form16',
+                action: function(npc, value) {
+                    Game.formData['race_black'] = true;
+                }
             }
         ]
     },
@@ -770,11 +794,17 @@ Dialogue = {
         choices : [
             {
                 label       : 'Race: NOT Native Hawaiian or Other Pacific Islander',
-                goTo        : 'step4_form17'
+                goTo        : 'step4_form17',
+                action: function(npc, value) {
+                    Game.formData['race_hawaiian'] = false;
+                }
             },
             {
                 label       : 'Race: Native Hawaiian or Other Pacific Islander',
-                goTo        : 'step4_form17'
+                goTo        : 'step4_form17',
+                action: function(npc, value) {
+                    Game.formData['race_hawaiian'] = true;
+                }
             }
         ]
     },
@@ -785,11 +815,17 @@ Dialogue = {
         choices : [
             {
                 label       : 'Race: NOT White',
-                goTo        : 'step4_end'
+                goTo        : 'step4_end',
+                action: function(npc, value) {
+                    Game.formData['race_white'] = false;
+                }
             },
             {
                 label       : 'Race: White',
-                goTo        : 'step4_end'
+                goTo        : 'step4_end',
+                action: function(npc, value) {
+                    Game.formData['race_white'] = true;
+                }
             }
         ]
     },
