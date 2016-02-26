@@ -137,8 +137,8 @@
                 $('#assistanceprogram').html(assisshtml);
 
                 var childrenincomehtml = "None";
-                if (formdata.childrenincome) {
-                    childrenincomehtml = formdata.childrenincome;
+                if (parseInt(formdata.childrenincome)) {
+                    childrenincomehtml = "$"+formdata.childrenincome;
                 }
                 $("#childincome").html(childrenincomehtml);
                 
@@ -147,13 +147,13 @@
                 jQuery.each(formdata.adults, function(k,adult){
                     var adultincome = [];
                     adultlist_html += "<li>"+adult.name+"</li><ul>";
-                    if (adult.work_income) {
+                    if (parseInt(adult.work_income)) {
                         adultlist_html += "<li>Earning From Work: $"+adult.work_income+"</li>";
                     }
-                    if (adult.public_assistance_income) {
+                    if (parseInt(adult.public_assistance_income)) {
                         adultlist_html += "<li>Public Assistance/Child Support/Alimony: $"+adult.public_assistance_income+"</li>";
                     }
-                    if (adult.pension_income) {
+                    if (parseInt(adult.pension_income)) {
                         adultlist_html += "<li>Pensions/Retirement/All Other Income: $"+adult.pension_income+"</li>";
                     }
                     adultlist_html += "</ul>";
