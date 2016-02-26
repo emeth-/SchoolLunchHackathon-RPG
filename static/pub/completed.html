@@ -15,7 +15,7 @@
         <h3><strong><em>Form Completed.</em></strong></h3>
 <p>Thank you! Your form has been submitted. To download a copy for your records, please click the button below.</p>
         <p style="text-align: center">
-          <a class="btn btn-lg btn-primary" onclick="download()" role="button">Download</a>
+          <a class="btn btn-lg btn-primary" onclick="download_me()" role="button">Download</a>
         </p>
 
 
@@ -52,7 +52,7 @@
             return result;
         }
         
-        function download() {
+        function download_me() {
             window.location.href="download.html?id="+requestGET('id');
         }
     </script>

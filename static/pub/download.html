@@ -177,20 +177,20 @@
 
                 var ethhtml = "Declined to state";
                 if ('ethnicity_hispanic' in formdata) {
-                    ethhtml = "";
+                    ethhtml = "<br>";
                     var checked;
 
                     checked = "";
                     if (formdata.ethnicity_hispanic) {
                         checked = " checked";
                     }
-                    ethhtml += '<input type="checkbox"'+checked+' disabled="disabled"> Hispanic or Latino';
+                    ethhtml += '<input type="checkbox"'+checked+' disabled="disabled"> Hispanic or Latino<br>';
 
                     checked = "";
                     if (!formdata.ethnicity_hispanic) {
                         checked = " checked";
                     }
-                    ethhtml += '<input type="checkbox"'+checked+' disabled="disabled"> Not Hispanic or Latino';
+                    ethhtml += '<input type="checkbox"'+checked+' disabled="disabled"> Not Hispanic or Latino<br>';
                 }
                 
                 $("#ethnicity").html(ethhtml)
@@ -198,38 +198,38 @@
 
                 var racehtml = "Declined to state";
                 if ('race_american_indian' in formdata) {
-                    racehtml = "";
+                    racehtml = "<br>";
                     var checked;
 
                     checked = "";
                     if (formdata.race_american_indian) {
                         checked = " checked";
                     }
-                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> American Indian or Alaskan Native';
+                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> American Indian or Alaskan Native<br>';
 
                     checked = "";
                     if (formdata.race_asian) {
                         checked = " checked";
                     }
-                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> Asian';
+                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> Asian<br>';
 
                     checked = "";
                     if (formdata.race_black) {
                         checked = " checked";
                     }
-                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> Black or African American';
+                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> Black or African American<br>';
 
                     checked = "";
                     if (formdata.race_hawaiian) {
                         checked = " checked";
                     }
-                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> Native Hawaiian or Other Pacific Islander';
+                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> Native Hawaiian or Other Pacific Islander<br>';
 
                     checked = "";
                     if (formdata.race_white) {
                         checked = " checked";
                     }
-                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> White';
+                    racehtml += '<input type="checkbox"'+checked+' disabled="disabled"> White<br>';
                 }
 
                 $("#race").html(racehtml)

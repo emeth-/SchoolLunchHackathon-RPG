@@ -2,7 +2,6 @@ from django.http import HttpResponse
 import datetime
 import json
 from api.models import CompletedForm
-from ipware.ip import get_real_ip
 
 def json_custom_parser(obj):
     if isinstance(obj, datetime.datetime) or isinstance(obj, datetime.date):
@@ -19,7 +18,7 @@ def save_form(request):
 
     nf = CompletedForm(**{
         "data": request.POST['data'],
-        "ipaddress": get_real_ip(request)
+        "ipaddress": request.META['REMOTE_ADDR']
     })
     nf.save()
 
@@ -37,6 +36,7 @@ def get_completed_forms(request):
     for c in cfo.order_by('-created'):
         try:
             completed_forms.append({
+                "ipaddress": c.ipaddress,
                 "id": c.id,
                 "data": json.loads(c.data),
                 "created": c.created
