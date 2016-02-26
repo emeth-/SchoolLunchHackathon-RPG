@@ -39,3 +39,8 @@ Create a superuser for Django admin panel
 $ python manage.py createsuperuser
 Visit http://127.0.0.1:8000/admin/
 ```
+
+##### Thanks
+
+A big shout-out and thanks to robobeau, who built the RPG engine used and released it under the MIT license [here](https://github.com/robobeau/JobInterviewStory)
+

@@ -1,15 +1,4 @@
-#Shushoku Mensetsu Monogatari
-
-## Job Interview Story
-
-Our protagonist, René, is on a perilous journey to save himself from the evil clutches of unemployment! It's up to you to guide him towards the sprawling downtown metropolis while avoiding the marketing dept., IT services people, and other various nerds and neckbeards out to ruin your day! Use your vast knowledge of Front End Development to take them down a notch and lead our hero to a successful job interview!
-
-## Demo
-
-A working demo of the game, still in progress, can be found [here](http://jis.robobeau.com).
-Controls are WASD to move and Spacebar to interact.
-
-## Project Dependencies
+## Frontend Dependencies
 
 You will need:
 
@@ -28,16 +17,10 @@ Grunt and its dependencies will be installed via **npm install**, but here they 
 
 ## Setup
 
-Checkout the project:
+After checking out the project, CD into this frontend folder and run **npm install** to install all the project dependencies:
 
 ```
-git clone git@github.com:robobeau/JobInterviewStory.git your-project-folder-here
-```
-
-CD into the project folder and run **npm install** to install all the project dependencies:
-
-```
-cd your-project-folder-here
+cd static/
 npm install
 ```
 
@@ -46,3 +29,8 @@ Run Grunt in order to compile the newly installed third party vendor scripts, an
 ```
 grunt
 ```
+
+
+##### Thanks
+
+A big shout-out and thanks to robobeau, who built the RPG engine used and released it under the MIT license [here](https://github.com/robobeau/JobInterviewStory)
