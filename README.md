@@ -1,7 +1,9 @@
-Hackathon-kit
+SchoolLunchHackathon-RPG
 ===========
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+##### DEMO
+[Form](http://school-lunch-hackathon.herokuapp.com/)
+[Admin](http://school-lunch-hackathon.herokuapp.com/static/pub/admin.html)
 
 ##### SETUP
 ```
@@ -19,12 +21,6 @@ $ heroku config:set IS_HEROKU_SERVER=1
 $ git push heroku master
 ```
 
-##### Migrations
-Create new migrations
-```
-$ python manage.py makemigrations
-```
-
 Run migrations
 ```
 $ python manage.py migrate
@@ -33,11 +29,11 @@ $ python manage.py migrate
 ##### Run Server
 ```
 $ python manage.py runserver
-Visit http://127.0.0.1:8000/static/index.html
+Visit http://127.0.0.1:8000/
 ```
 
 ##### Admin Panel
-Create a superuser
+Create a superuser for Django admin panel
 ```
 $ python manage.py createsuperuser
 Visit http://127.0.0.1:8000/admin/
