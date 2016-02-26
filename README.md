@@ -41,7 +41,7 @@ Visit http://127.0.0.1:8000/admin/
 ```
 
 ##### Frontend
-[Follow the directions here](https://github.com/emeth-/SchoolLunchHackathon-RPG/tree/develop/static)
+[Follow the directions here](https://github.com/emeth-/SchoolLunchHackathon-RPG/blob/develop/static/README.md)
 
 ##### Thanks
 
