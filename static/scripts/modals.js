@@ -58,7 +58,7 @@ function Modals () {
                         }
 
                         if (dialogue.action) {
-                            dialogue.action(modal.data('modal')['npc'], activeElement.val());
+                            dialogue.action(modal.data('modal')['npc'], value);
                         }
 
                         if (dialogue.goTo) {
