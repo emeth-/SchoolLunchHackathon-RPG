@@ -567,11 +567,21 @@ Dialogue = {
     'step4_start': {
         type        : 'dialogue',
         text        : "To finalize the form, we'll need a signature and some contact information. Let's go through that now.",
-        goTo        : 'step4_form1'
+        goTo        : 'step4_form1a'
+    },
+
+    'step4_form1a': {
+        type    : 'input',
+        emote   : 'think',
+        label   : 'What are the last 4 digits of your SSN?',
+        goTo    : 'step4_form1b',
+        action: function(npc, value) {
+            Game.formData['ssn'] = value;
+        }
     },
 
 
-    'step4_form1': {
+    'step4_form1b': {
         type    : 'input',
         emote   : 'think',
         label   : 'What is your street address?',
@@ -637,7 +647,7 @@ Dialogue = {
         label   : 'What is your name?',
         goTo    : 'step4_form8a',
         action: function(npc, value) {
-            Game.formData['email'] = value;
+            Game.formData['printedname'] = value;
         }
     },
 

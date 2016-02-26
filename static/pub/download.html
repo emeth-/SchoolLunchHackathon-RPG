@@ -35,7 +35,7 @@
         </span>
 
         <h4>Adult Household Members:</h4>
-        <ul>
+        <ul id="adult_members">
             <li>Mike Burke</li>
             <ul>
                 <li>Earning From Work: $123,123 Weekly</li>
@@ -54,19 +54,19 @@
         </ul>
 
         <h4>Form Completer Information</h4>
-        <b>Last 4 Digits of SSN:</b> 3333<br>
-        <b>Street Address:</b> 801 S. Calmgrove<br>
-        <b>City:</b> Glendora<br>
-        <b>State:</b> CA<br>
-        <b>Zip:</b> 91740<br>
-        <b>Phone:</b> 9097902903<br>
-        <b>Email:</b> bobdole@gmail.com<br>
-        <b>Printed Name:</b> Bob Dole<br>
-        <b>Signature:</b> Bob Dole (IP=217.12.21.32, Time=12/12/12 12:00am)<br>
+        <b>Last 4 Digits of SSN:</b> <span id='ssn'>3333</span><br>
+        <b>Street Address:</b> <span id='street_address'>801 S. Calmgrove</span><br>
+        <b>City:</b> <span id='city'>Glendora</span><br>
+        <b>State:</b> <span id='state'>CA</span><br>
+        <b>Zip:</b> <span id='zip'>91740</span><br>
+        <b>Phone:</b> <span id='phonenumber'>9097902903</span><br>
+        <b>Email:</b> <span id='email'>bobdole@gmail.com</span><br>
+        <b>Printed Name:</b> <span id='printedname'>Bob Dole</span><br>
+        <b>Signature:</b> <span id='signature'>Bob Dole (IP=217.12.21.32, Time=12/12/12 12:00am)</span><br>
 
         <h4>Optional Child Information</h4>
-        <b>Ethnicity:</b> [Only if set]<br>
-        <b>Race:</b> [Only if set]<br>
+        <b>Ethnicity:</b> <span id='ssn'>[Only if set]</span><br>
+        <b>Race:</b> <span id='ssn'>[Only if set]</span><br>
         
         
 
@@ -106,7 +106,74 @@
             success: function(data) {
                 var formdata = data.data[0].data;
                 console.log(formdata);
-                $('#created').html(moment(data.data[0].created+"Z").format("dddd, MMMM Do YYYY, h:mm:ss a"));
+                
+                var createddate = moment(data.data[0].created+"Z").format("dddd, MMMM Do YYYY, h:mm:ss a");
+                $('#created').html(createddate);
+
+                var childrenlist_html = "";
+                jQuery.each(formdata.children, function(k,child){
+                    var child_types = [];
+                    childrenlist_html += child.name;
+                    if (child.student) {
+                        child_types.push("Student");
+                    }
+                    if (child.foster_child) {
+                        child_types.push("Foster Child");
+                    }
+                    if (child.homeless) {
+                        child_types.push("Homeless/Migrant/Runaway");
+                    }
+                    if (child_types.length > 0) {
+                        childrenlist_html += " - " + child_types.join(', ');
+                    }
+                    childrenlist_html += "<br>";
+                });
+                $('#childrenlist').html(childrenlist_html);
+
+                var assisshtml = "No";
+                if (formdata.case_number) {
+                    assisshtml = "Yes, Case Number: "+formdata.case_number;
+                }
+                $('#assistanceprogram').html(assisshtml);
+
+                var childrenincomehtml = "None";
+                if (formdata.childrenincome) {
+                    childrenincomehtml = formdata.childrenincome;
+                }
+                $("#childincome").html(childrenincomehtml);
+                
+
+                var adultlist_html = "";
+                jQuery.each(formdata.adults, function(k,adult){
+                    var adultincome = [];
+                    adultlist_html += "<li>"+adult.name+"</li><ul>";
+                    if (adult.work_income) {
+                        adultlist_html += "<li>Earning From Work: "+adult.work_income+"</li>";
+                    }
+                    if (adult.public_assistance_income) {
+                        adultlist_html += "<li>Public Assistance/Child Support/Alimony: "+adult.public_assistance_income+"</li>";
+                    }
+                    if (adult.pension_income) {
+                        adultlist_html += "<li>Pensions/Retirement/All Other Income: "+adult.pension_income+"</li>";
+                    }
+                    adultlist_html += "</ul>";
+                });
+                if (!adultlist_html) {
+                    adultlist_html = "None";
+                }
+                $('#adult_members').html(adultlist_html);
+
+                $('#ssn').html(formdata.ssn);
+                $('#street_address').html(formdata.street_address);
+                $('#city').html(formdata.city);
+                $('#state').html(formdata.state);
+                $('#zip').html(formdata.zip);
+                $('#phonenumber').html(formdata.phonenumber);
+                $('#email').html(formdata.email);
+                $('#printedname').html(formdata.printedname);
+
+                $('#signature').html(formdata.signature + " (IP="+data.data[0].ipaddress+", Time="+createddate+")");
+
             },
             error: function (e) {
                 console.log("error", e);

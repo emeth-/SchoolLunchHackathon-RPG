@@ -3,6 +3,8 @@ from django.db import models
 class CompletedForm(models.Model):
     data = models.TextField()
     created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    ipaddress = models.CharField(max_length=255, default='', blank=True, null=True)
+    
     def __unicode__(self):
         return u'%s' % (self.created)
 

@@ -2,6 +2,7 @@ from django.http import HttpResponse
 import datetime
 import json
 from api.models import CompletedForm
+from ipware.ip import get_real_ip
 
 def json_custom_parser(obj):
     if isinstance(obj, datetime.datetime) or isinstance(obj, datetime.date):
@@ -17,7 +18,8 @@ def save_form(request):
     """
 
     nf = CompletedForm(**{
-        "data": request.POST['data']
+        "data": request.POST['data'],
+        "ipaddress": get_real_ip(request)
     })
     nf.save()
 
