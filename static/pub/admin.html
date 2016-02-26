@@ -36,7 +36,7 @@
             success: function(data) {
                 var htmlz = "<ul>";
                 for (var i=0; i<data.data.length; i++) {
-                    htmlz += "<li>"+moment(data.data[i].created+"Z").format("dddd, MMMM Do YYYY, h:mm:ss a")+' <a class="btn btn-sm btn-primary" href="form.html" role="button">Download</a></li>';
+                    htmlz += "<li>"+moment(data.data[i].created+"Z").format("dddd, MMMM Do YYYY, h:mm:ss a")+' <a class="btn btn-sm btn-primary" href="download.html?id='+data.data[i].id+'" role="button" target="_blank">Download</a></li>';
                 }
                 htmlz += "</ul>";
                 $('#forms').html(htmlz);

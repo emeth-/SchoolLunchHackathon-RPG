@@ -37,6 +37,7 @@ def get_completed_forms(request):
     for c in cfo.order_by('-created'):
         try:
             completed_forms.append({
+                "id": c.id,
                 "data": json.loads(c.data),
                 "created": c.created
             })

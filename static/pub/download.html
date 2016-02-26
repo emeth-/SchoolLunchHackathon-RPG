@@ -148,13 +148,13 @@
                     var adultincome = [];
                     adultlist_html += "<li>"+adult.name+"</li><ul>";
                     if (adult.work_income) {
-                        adultlist_html += "<li>Earning From Work: "+adult.work_income+"</li>";
+                        adultlist_html += "<li>Earning From Work: $"+adult.work_income+"</li>";
                     }
                     if (adult.public_assistance_income) {
-                        adultlist_html += "<li>Public Assistance/Child Support/Alimony: "+adult.public_assistance_income+"</li>";
+                        adultlist_html += "<li>Public Assistance/Child Support/Alimony: $"+adult.public_assistance_income+"</li>";
                     }
                     if (adult.pension_income) {
-                        adultlist_html += "<li>Pensions/Retirement/All Other Income: "+adult.pension_income+"</li>";
+                        adultlist_html += "<li>Pensions/Retirement/All Other Income: $"+adult.pension_income+"</li>";
                     }
                     adultlist_html += "</ul>";
                 });
