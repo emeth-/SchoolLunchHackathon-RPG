@@ -32,7 +32,7 @@
                     },
                     success: function(data) {
                         console.log("form saved", data);
-                        window.location.href="completed.html";
+                        window.location.href="completed.html?id="+data.id;
                     },
                     error: function (e) {
                         console.log("error", e);
