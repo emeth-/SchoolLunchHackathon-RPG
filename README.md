@@ -40,6 +40,9 @@ $ python manage.py createsuperuser
 Visit http://127.0.0.1:8000/admin/
 ```
 
+##### Frontend
+[Follow the directions here](https://github.com/emeth-/SchoolLunchHackathon-RPG/tree/develop/static)
+
 ##### Thanks
 
 A big shout-out and thanks to robobeau, who built the RPG engine used and released it under the MIT license [here](https://github.com/robobeau/JobInterviewStory)
