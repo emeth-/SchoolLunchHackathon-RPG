@@ -51,6 +51,9 @@ Dialogue = {
             }
             for (var i=1; i<=total_children; i++) {
                 $('#child'+i).show();
+                if ($('#child'+i).data().npc.completedme) {
+                    Game.children_left_to_fill_out -= 1;
+                }
             }
         }
     },
@@ -238,7 +241,13 @@ Dialogue = {
         },
         action      : function(npc) {
             if (npc) {
-                Game.children_left_to_fill_out -= 1;
+
+                if (!npc.data().npc.completedme) {
+                    //If first time completing this child, mark 'em done.
+                    Game.children_left_to_fill_out -= 1;
+                }
+                npc.data().npc.completedme = true;
+
                 var move_directions = [];
 
                 move_directions.push('up');
