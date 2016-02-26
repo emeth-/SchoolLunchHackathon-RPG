@@ -20,7 +20,14 @@ Dialogue = {
         triggeredText: function(npc) {
             npc.dialogueId = "step1_start";
         },
-        text    : "Welcome! I'm a clerk who has been tasked with helping you fill out this form. Come talk to me when you're ready to start! (Arrow keys to move, space bar to talk)",
+        goTo        : 'game_load2',
+        text    : "Welcome! I'm a clerk who has been tasked with helping you fill out this form. Hit enter to continue."
+    },
+
+    'game_load2': {
+        type        : 'dialogue',
+        emote       : 'question',
+        text    : "The enter key can be used to speak to people and end dialogues. After closing this dialogue (by hitting enter), use the arrow keys to walk over to me, and then hit enter to speak with me.",
         end : true
     },
 
