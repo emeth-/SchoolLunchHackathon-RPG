@@ -340,9 +340,9 @@ function Modals () {
 
                 modal.html('');
 
-                if (dialogue.action) {
-                    dialogue.action();
-                }
+                //if (dialogue.action) {
+                //    dialogue.action(modal.data('modal')['npc']);
+                //}
 
                 break;
 

@@ -16,7 +16,7 @@ Dialogue = {
 
     'game_load': {
         type        : 'dialogue',
-        emote       : 'question',
+        emote       : 'happiness',
         triggeredText: function(npc) {
             npc.dialogueId = "step1_start";
         },
@@ -26,28 +26,36 @@ Dialogue = {
 
     'game_load2': {
         type        : 'dialogue',
-        emote       : 'question',
+        emote       : 'happiness',
         text    : "The enter key can be used to speak to people and end dialogues. After closing this dialogue (by hitting enter), use the arrow keys to walk over to me, and then hit enter to speak with me.",
+        action: function(npc) {
+            setTimeout(function(){
+                npc.npc('emote', 'question');
+            }, 500);
+        },
         end : true
     },
 
+
+
+
     'clerk_notready': {
         type        : 'dialogue',
-        text        : "Go talk to my colleague on the far right side of this room.",
-        emote       : 'think',
+        text        : "I'm not ready to speak to you yet, please go talk to my colleague.",
+        emote       : 'question',
         end         : true
     },
 
     'step1_start': {
         type        : 'dialogue',
         text        : "To begin with, let's record your children's information.",
-        emote       : 'think',
+        emote       : 'question',
         goTo        : 'step1_q1'
     },
 
     'step1_q1': {
         type    : 'input',
-        emote   : 'think',
+        emote   : 'question',
         label   : 'How many children do you have? (hit enter when done)',
         goTo    : 'step1_q2',
         action: function(npc, value) {
@@ -303,7 +311,7 @@ Dialogue = {
     'step2_npcstart': {
         type        : 'dialogue',
         text        : "Excellent! Come talk to me to move on to the next step.",
-        emote       : 'think',
+        emote       : 'happiness',
         end         : true,
         action      : function(npc) {
             if (npc && !npc.data().npc['frozen']) {
@@ -322,6 +330,10 @@ Dialogue = {
                 setTimeout(function(){
                     npc.find('.npc-sprite').removeClass('right').addClass('down');
                 }, 2000);
+
+                setTimeout(function(){
+                    npc.npc('emote', 'question');
+                }, 500);
             }
         }
     },
@@ -385,7 +397,7 @@ Dialogue = {
     'step3_npcstart': {
         type        : 'dialogue',
         text        : "Excellent! Come talk to me to move on to the next step.",
-        emote       : 'think',
+        emote       : 'happiness',
         end         : true,
         action      : function(npc) {
             if (npc && !npc.data().npc['frozen']) {
@@ -403,6 +415,10 @@ Dialogue = {
                 setTimeout(function(){
                     npc.find('.npc-sprite').removeClass('left').addClass('down');
                 }, 2000);
+
+                setTimeout(function(){
+                    npc.npc('emote', 'question');
+                }, 500);
             }
         }
     },
@@ -564,7 +580,7 @@ Dialogue = {
     'step4_npcstart': {
         type        : 'dialogue',
         text        : "One last step remains! Go back to the lobby, and then join me in the final room on the left to complete it!",
-        emote       : 'think',
+        emote       : 'happiness',
         end         : true,
         action      : function(npc) {
             if (npc && !npc.data().npc['frozen']) {
@@ -580,6 +596,10 @@ Dialogue = {
                 setTimeout(function(){
                     npc.find('.npc-sprite').removeClass('up').addClass('down');
                 }, 2000);
+
+                setTimeout(function(){
+                    npc.npc('emote', 'question');
+                }, 500);
             }
         }
     },
