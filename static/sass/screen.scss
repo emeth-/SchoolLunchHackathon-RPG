@@ -161,6 +161,13 @@ a {
         height: 16px;
         width: 16px;
     }
+
+    &.continue::before {
+        content: "(hit enter)";
+        position: relative;
+        right: 111px;
+        white-space: nowrap;
+    }
 }
 
 /** NPCS ******************************************************************************************/

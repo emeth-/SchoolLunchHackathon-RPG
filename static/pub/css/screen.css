@@ -177,16 +177,23 @@ a:hover {
   height: 16px;
   width: 16px;
 }
+/* line 165, ../../sass/screen.scss */
+.icon.continue::before {
+  content: "(hit enter)";
+  position: relative;
+  right: 111px;
+  white-space: nowrap;
+}
 
 /** NPCS ******************************************************************************************/
-/* line 168, ../../sass/screen.scss */
+/* line 175, ../../sass/screen.scss */
 .npc {
   background-color: rgba(255, 0, 0, 0);
   height: 32px;
   position: absolute;
   width: 32px;
 }
-/* line 174, ../../sass/screen.scss */
+/* line 181, ../../sass/screen.scss */
 .npc .npc-sprite {
   background-repeat: no-repeat;
   background-position: left top;
@@ -195,7 +202,7 @@ a:hover {
   top: -8px;
   width: 32px;
 }
-/* line 183, ../../sass/screen.scss */
+/* line 190, ../../sass/screen.scss */
 .npc .emote {
   background-position: left top;
   background-repeat: no-repeat;
@@ -204,56 +211,56 @@ a:hover {
   top: -32px;
   width: 30px;
 }
-/* line 191, ../../sass/screen.scss */
+/* line 198, ../../sass/screen.scss */
 .npc .emote.happiness {
   background-image: url(/static/pub/img/emote-happiness.gif);
 }
-/* line 195, ../../sass/screen.scss */
+/* line 202, ../../sass/screen.scss */
 .npc .emote.love {
   background-image: url(/static/pub/img/emote-love.gif);
 }
-/* line 199, ../../sass/screen.scss */
+/* line 206, ../../sass/screen.scss */
 .npc .emote.question {
   background-image: url(/static/pub/img/emote-question.gif);
 }
-/* line 203, ../../sass/screen.scss */
+/* line 210, ../../sass/screen.scss */
 .npc .emote.sadness {
   background-image: url(/static/pub/img/emote-sadness.gif);
 }
-/* line 207, ../../sass/screen.scss */
+/* line 214, ../../sass/screen.scss */
 .npc .emote.talkAngry {
   background-image: url(/static/pub/img/emote-talk-angry.gif);
 }
-/* line 211, ../../sass/screen.scss */
+/* line 218, ../../sass/screen.scss */
 .npc .emote.talkHappy {
   background-image: url(/static/pub/img/emote-talk-happy.gif);
 }
-/* line 215, ../../sass/screen.scss */
+/* line 222, ../../sass/screen.scss */
 .npc .emote.think {
   background-image: url(/static/pub/img/emote-think.gif);
 }
 
-/* line 227, ../../sass/screen.scss */
+/* line 234, ../../sass/screen.scss */
 #adult0 .npc-sprite {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 230, ../../sass/screen.scss */
+/* line 237, ../../sass/screen.scss */
 #adult0 .npc-sprite.down {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 233, ../../sass/screen.scss */
+/* line 240, ../../sass/screen.scss */
 #adult0 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n000-down-walking.gif);
 }
-/* line 238, ../../sass/screen.scss */
+/* line 245, ../../sass/screen.scss */
 #adult0 .npc-sprite.left {
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 241, ../../sass/screen.scss */
+/* line 248, ../../sass/screen.scss */
 #adult0 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 246, ../../sass/screen.scss */
+/* line 253, ../../sass/screen.scss */
 #adult0 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -262,40 +269,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 255, ../../sass/screen.scss */
+/* line 262, ../../sass/screen.scss */
 #adult0 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 260, ../../sass/screen.scss */
+/* line 267, ../../sass/screen.scss */
 #adult0 .npc-sprite.up {
   background-image: url(/static/pub/img/n000-up.gif);
 }
-/* line 263, ../../sass/screen.scss */
+/* line 270, ../../sass/screen.scss */
 #adult0 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n000-up-walking.gif);
 }
 
-/* line 227, ../../sass/screen.scss */
+/* line 234, ../../sass/screen.scss */
 #adult1 .npc-sprite {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 230, ../../sass/screen.scss */
+/* line 237, ../../sass/screen.scss */
 #adult1 .npc-sprite.down {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 233, ../../sass/screen.scss */
+/* line 240, ../../sass/screen.scss */
 #adult1 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n000-down-walking.gif);
 }
-/* line 238, ../../sass/screen.scss */
+/* line 245, ../../sass/screen.scss */
 #adult1 .npc-sprite.left {
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 241, ../../sass/screen.scss */
+/* line 248, ../../sass/screen.scss */
 #adult1 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 246, ../../sass/screen.scss */
+/* line 253, ../../sass/screen.scss */
 #adult1 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -304,40 +311,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 255, ../../sass/screen.scss */
+/* line 262, ../../sass/screen.scss */
 #adult1 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 260, ../../sass/screen.scss */
+/* line 267, ../../sass/screen.scss */
 #adult1 .npc-sprite.up {
   background-image: url(/static/pub/img/n000-up.gif);
 }
-/* line 263, ../../sass/screen.scss */
+/* line 270, ../../sass/screen.scss */
 #adult1 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n000-up-walking.gif);
 }
 
-/* line 227, ../../sass/screen.scss */
+/* line 234, ../../sass/screen.scss */
 #adult2 .npc-sprite {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 230, ../../sass/screen.scss */
+/* line 237, ../../sass/screen.scss */
 #adult2 .npc-sprite.down {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 233, ../../sass/screen.scss */
+/* line 240, ../../sass/screen.scss */
 #adult2 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n000-down-walking.gif);
 }
-/* line 238, ../../sass/screen.scss */
+/* line 245, ../../sass/screen.scss */
 #adult2 .npc-sprite.left {
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 241, ../../sass/screen.scss */
+/* line 248, ../../sass/screen.scss */
 #adult2 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 246, ../../sass/screen.scss */
+/* line 253, ../../sass/screen.scss */
 #adult2 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -346,40 +353,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 255, ../../sass/screen.scss */
+/* line 262, ../../sass/screen.scss */
 #adult2 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 260, ../../sass/screen.scss */
+/* line 267, ../../sass/screen.scss */
 #adult2 .npc-sprite.up {
   background-image: url(/static/pub/img/n000-up.gif);
 }
-/* line 263, ../../sass/screen.scss */
+/* line 270, ../../sass/screen.scss */
 #adult2 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n000-up-walking.gif);
 }
 
-/* line 227, ../../sass/screen.scss */
+/* line 234, ../../sass/screen.scss */
 #adult3 .npc-sprite {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 230, ../../sass/screen.scss */
+/* line 237, ../../sass/screen.scss */
 #adult3 .npc-sprite.down {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 233, ../../sass/screen.scss */
+/* line 240, ../../sass/screen.scss */
 #adult3 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n000-down-walking.gif);
 }
-/* line 238, ../../sass/screen.scss */
+/* line 245, ../../sass/screen.scss */
 #adult3 .npc-sprite.left {
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 241, ../../sass/screen.scss */
+/* line 248, ../../sass/screen.scss */
 #adult3 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 246, ../../sass/screen.scss */
+/* line 253, ../../sass/screen.scss */
 #adult3 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -388,40 +395,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 255, ../../sass/screen.scss */
+/* line 262, ../../sass/screen.scss */
 #adult3 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 260, ../../sass/screen.scss */
+/* line 267, ../../sass/screen.scss */
 #adult3 .npc-sprite.up {
   background-image: url(/static/pub/img/n000-up.gif);
 }
-/* line 263, ../../sass/screen.scss */
+/* line 270, ../../sass/screen.scss */
 #adult3 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n000-up-walking.gif);
 }
 
-/* line 227, ../../sass/screen.scss */
+/* line 234, ../../sass/screen.scss */
 #adult4 .npc-sprite {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 230, ../../sass/screen.scss */
+/* line 237, ../../sass/screen.scss */
 #adult4 .npc-sprite.down {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 233, ../../sass/screen.scss */
+/* line 240, ../../sass/screen.scss */
 #adult4 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n000-down-walking.gif);
 }
-/* line 238, ../../sass/screen.scss */
+/* line 245, ../../sass/screen.scss */
 #adult4 .npc-sprite.left {
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 241, ../../sass/screen.scss */
+/* line 248, ../../sass/screen.scss */
 #adult4 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 246, ../../sass/screen.scss */
+/* line 253, ../../sass/screen.scss */
 #adult4 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -430,40 +437,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 255, ../../sass/screen.scss */
+/* line 262, ../../sass/screen.scss */
 #adult4 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 260, ../../sass/screen.scss */
+/* line 267, ../../sass/screen.scss */
 #adult4 .npc-sprite.up {
   background-image: url(/static/pub/img/n000-up.gif);
 }
-/* line 263, ../../sass/screen.scss */
+/* line 270, ../../sass/screen.scss */
 #adult4 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n000-up-walking.gif);
 }
 
-/* line 227, ../../sass/screen.scss */
+/* line 234, ../../sass/screen.scss */
 #adult5 .npc-sprite {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 230, ../../sass/screen.scss */
+/* line 237, ../../sass/screen.scss */
 #adult5 .npc-sprite.down {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 233, ../../sass/screen.scss */
+/* line 240, ../../sass/screen.scss */
 #adult5 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n000-down-walking.gif);
 }
-/* line 238, ../../sass/screen.scss */
+/* line 245, ../../sass/screen.scss */
 #adult5 .npc-sprite.left {
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 241, ../../sass/screen.scss */
+/* line 248, ../../sass/screen.scss */
 #adult5 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 246, ../../sass/screen.scss */
+/* line 253, ../../sass/screen.scss */
 #adult5 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -472,40 +479,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 255, ../../sass/screen.scss */
+/* line 262, ../../sass/screen.scss */
 #adult5 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 260, ../../sass/screen.scss */
+/* line 267, ../../sass/screen.scss */
 #adult5 .npc-sprite.up {
   background-image: url(/static/pub/img/n000-up.gif);
 }
-/* line 263, ../../sass/screen.scss */
+/* line 270, ../../sass/screen.scss */
 #adult5 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n000-up-walking.gif);
 }
 
-/* line 227, ../../sass/screen.scss */
+/* line 234, ../../sass/screen.scss */
 #adult6 .npc-sprite {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 230, ../../sass/screen.scss */
+/* line 237, ../../sass/screen.scss */
 #adult6 .npc-sprite.down {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 233, ../../sass/screen.scss */
+/* line 240, ../../sass/screen.scss */
 #adult6 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n000-down-walking.gif);
 }
-/* line 238, ../../sass/screen.scss */
+/* line 245, ../../sass/screen.scss */
 #adult6 .npc-sprite.left {
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 241, ../../sass/screen.scss */
+/* line 248, ../../sass/screen.scss */
 #adult6 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 246, ../../sass/screen.scss */
+/* line 253, ../../sass/screen.scss */
 #adult6 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -514,40 +521,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 255, ../../sass/screen.scss */
+/* line 262, ../../sass/screen.scss */
 #adult6 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 260, ../../sass/screen.scss */
+/* line 267, ../../sass/screen.scss */
 #adult6 .npc-sprite.up {
   background-image: url(/static/pub/img/n000-up.gif);
 }
-/* line 263, ../../sass/screen.scss */
+/* line 270, ../../sass/screen.scss */
 #adult6 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n000-up-walking.gif);
 }
 
-/* line 227, ../../sass/screen.scss */
+/* line 234, ../../sass/screen.scss */
 #adult7 .npc-sprite {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 230, ../../sass/screen.scss */
+/* line 237, ../../sass/screen.scss */
 #adult7 .npc-sprite.down {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 233, ../../sass/screen.scss */
+/* line 240, ../../sass/screen.scss */
 #adult7 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n000-down-walking.gif);
 }
-/* line 238, ../../sass/screen.scss */
+/* line 245, ../../sass/screen.scss */
 #adult7 .npc-sprite.left {
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 241, ../../sass/screen.scss */
+/* line 248, ../../sass/screen.scss */
 #adult7 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 246, ../../sass/screen.scss */
+/* line 253, ../../sass/screen.scss */
 #adult7 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -556,40 +563,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 255, ../../sass/screen.scss */
+/* line 262, ../../sass/screen.scss */
 #adult7 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 260, ../../sass/screen.scss */
+/* line 267, ../../sass/screen.scss */
 #adult7 .npc-sprite.up {
   background-image: url(/static/pub/img/n000-up.gif);
 }
-/* line 263, ../../sass/screen.scss */
+/* line 270, ../../sass/screen.scss */
 #adult7 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n000-up-walking.gif);
 }
 
-/* line 227, ../../sass/screen.scss */
+/* line 234, ../../sass/screen.scss */
 #adult8 .npc-sprite {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 230, ../../sass/screen.scss */
+/* line 237, ../../sass/screen.scss */
 #adult8 .npc-sprite.down {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 233, ../../sass/screen.scss */
+/* line 240, ../../sass/screen.scss */
 #adult8 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n000-down-walking.gif);
 }
-/* line 238, ../../sass/screen.scss */
+/* line 245, ../../sass/screen.scss */
 #adult8 .npc-sprite.left {
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 241, ../../sass/screen.scss */
+/* line 248, ../../sass/screen.scss */
 #adult8 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 246, ../../sass/screen.scss */
+/* line 253, ../../sass/screen.scss */
 #adult8 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -598,40 +605,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 255, ../../sass/screen.scss */
+/* line 262, ../../sass/screen.scss */
 #adult8 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 260, ../../sass/screen.scss */
+/* line 267, ../../sass/screen.scss */
 #adult8 .npc-sprite.up {
   background-image: url(/static/pub/img/n000-up.gif);
 }
-/* line 263, ../../sass/screen.scss */
+/* line 270, ../../sass/screen.scss */
 #adult8 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n000-up-walking.gif);
 }
 
-/* line 227, ../../sass/screen.scss */
+/* line 234, ../../sass/screen.scss */
 #adult9 .npc-sprite {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 230, ../../sass/screen.scss */
+/* line 237, ../../sass/screen.scss */
 #adult9 .npc-sprite.down {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 233, ../../sass/screen.scss */
+/* line 240, ../../sass/screen.scss */
 #adult9 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n000-down-walking.gif);
 }
-/* line 238, ../../sass/screen.scss */
+/* line 245, ../../sass/screen.scss */
 #adult9 .npc-sprite.left {
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 241, ../../sass/screen.scss */
+/* line 248, ../../sass/screen.scss */
 #adult9 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 246, ../../sass/screen.scss */
+/* line 253, ../../sass/screen.scss */
 #adult9 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -640,40 +647,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 255, ../../sass/screen.scss */
+/* line 262, ../../sass/screen.scss */
 #adult9 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 260, ../../sass/screen.scss */
+/* line 267, ../../sass/screen.scss */
 #adult9 .npc-sprite.up {
   background-image: url(/static/pub/img/n000-up.gif);
 }
-/* line 263, ../../sass/screen.scss */
+/* line 270, ../../sass/screen.scss */
 #adult9 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n000-up-walking.gif);
 }
 
-/* line 227, ../../sass/screen.scss */
+/* line 234, ../../sass/screen.scss */
 #adult10 .npc-sprite {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 230, ../../sass/screen.scss */
+/* line 237, ../../sass/screen.scss */
 #adult10 .npc-sprite.down {
   background-image: url(/static/pub/img/n000-down.gif);
 }
-/* line 233, ../../sass/screen.scss */
+/* line 240, ../../sass/screen.scss */
 #adult10 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n000-down-walking.gif);
 }
-/* line 238, ../../sass/screen.scss */
+/* line 245, ../../sass/screen.scss */
 #adult10 .npc-sprite.left {
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 241, ../../sass/screen.scss */
+/* line 248, ../../sass/screen.scss */
 #adult10 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 246, ../../sass/screen.scss */
+/* line 253, ../../sass/screen.scss */
 #adult10 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -682,40 +689,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n000-left.gif);
 }
-/* line 255, ../../sass/screen.scss */
+/* line 262, ../../sass/screen.scss */
 #adult10 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n000-left-walking.gif);
 }
-/* line 260, ../../sass/screen.scss */
+/* line 267, ../../sass/screen.scss */
 #adult10 .npc-sprite.up {
   background-image: url(/static/pub/img/n000-up.gif);
 }
-/* line 263, ../../sass/screen.scss */
+/* line 270, ../../sass/screen.scss */
 #adult10 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n000-up-walking.gif);
 }
 
-/* line 277, ../../sass/screen.scss */
+/* line 284, ../../sass/screen.scss */
 #child0 .npc-sprite {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 280, ../../sass/screen.scss */
+/* line 287, ../../sass/screen.scss */
 #child0 .npc-sprite.down {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 283, ../../sass/screen.scss */
+/* line 290, ../../sass/screen.scss */
 #child0 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n002-down-walking.gif);
 }
-/* line 288, ../../sass/screen.scss */
+/* line 295, ../../sass/screen.scss */
 #child0 .npc-sprite.left {
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 291, ../../sass/screen.scss */
+/* line 298, ../../sass/screen.scss */
 #child0 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 296, ../../sass/screen.scss */
+/* line 303, ../../sass/screen.scss */
 #child0 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -724,40 +731,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 305, ../../sass/screen.scss */
+/* line 312, ../../sass/screen.scss */
 #child0 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 310, ../../sass/screen.scss */
+/* line 317, ../../sass/screen.scss */
 #child0 .npc-sprite.up {
   background-image: url(/static/pub/img/n002-up.gif);
 }
-/* line 313, ../../sass/screen.scss */
+/* line 320, ../../sass/screen.scss */
 #child0 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n002-up-walking.gif);
 }
 
-/* line 277, ../../sass/screen.scss */
+/* line 284, ../../sass/screen.scss */
 #child1 .npc-sprite {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 280, ../../sass/screen.scss */
+/* line 287, ../../sass/screen.scss */
 #child1 .npc-sprite.down {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 283, ../../sass/screen.scss */
+/* line 290, ../../sass/screen.scss */
 #child1 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n002-down-walking.gif);
 }
-/* line 288, ../../sass/screen.scss */
+/* line 295, ../../sass/screen.scss */
 #child1 .npc-sprite.left {
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 291, ../../sass/screen.scss */
+/* line 298, ../../sass/screen.scss */
 #child1 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 296, ../../sass/screen.scss */
+/* line 303, ../../sass/screen.scss */
 #child1 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -766,40 +773,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 305, ../../sass/screen.scss */
+/* line 312, ../../sass/screen.scss */
 #child1 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 310, ../../sass/screen.scss */
+/* line 317, ../../sass/screen.scss */
 #child1 .npc-sprite.up {
   background-image: url(/static/pub/img/n002-up.gif);
 }
-/* line 313, ../../sass/screen.scss */
+/* line 320, ../../sass/screen.scss */
 #child1 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n002-up-walking.gif);
 }
 
-/* line 277, ../../sass/screen.scss */
+/* line 284, ../../sass/screen.scss */
 #child2 .npc-sprite {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 280, ../../sass/screen.scss */
+/* line 287, ../../sass/screen.scss */
 #child2 .npc-sprite.down {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 283, ../../sass/screen.scss */
+/* line 290, ../../sass/screen.scss */
 #child2 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n002-down-walking.gif);
 }
-/* line 288, ../../sass/screen.scss */
+/* line 295, ../../sass/screen.scss */
 #child2 .npc-sprite.left {
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 291, ../../sass/screen.scss */
+/* line 298, ../../sass/screen.scss */
 #child2 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 296, ../../sass/screen.scss */
+/* line 303, ../../sass/screen.scss */
 #child2 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -808,40 +815,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 305, ../../sass/screen.scss */
+/* line 312, ../../sass/screen.scss */
 #child2 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 310, ../../sass/screen.scss */
+/* line 317, ../../sass/screen.scss */
 #child2 .npc-sprite.up {
   background-image: url(/static/pub/img/n002-up.gif);
 }
-/* line 313, ../../sass/screen.scss */
+/* line 320, ../../sass/screen.scss */
 #child2 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n002-up-walking.gif);
 }
 
-/* line 277, ../../sass/screen.scss */
+/* line 284, ../../sass/screen.scss */
 #child3 .npc-sprite {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 280, ../../sass/screen.scss */
+/* line 287, ../../sass/screen.scss */
 #child3 .npc-sprite.down {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 283, ../../sass/screen.scss */
+/* line 290, ../../sass/screen.scss */
 #child3 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n002-down-walking.gif);
 }
-/* line 288, ../../sass/screen.scss */
+/* line 295, ../../sass/screen.scss */
 #child3 .npc-sprite.left {
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 291, ../../sass/screen.scss */
+/* line 298, ../../sass/screen.scss */
 #child3 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 296, ../../sass/screen.scss */
+/* line 303, ../../sass/screen.scss */
 #child3 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -850,40 +857,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 305, ../../sass/screen.scss */
+/* line 312, ../../sass/screen.scss */
 #child3 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 310, ../../sass/screen.scss */
+/* line 317, ../../sass/screen.scss */
 #child3 .npc-sprite.up {
   background-image: url(/static/pub/img/n002-up.gif);
 }
-/* line 313, ../../sass/screen.scss */
+/* line 320, ../../sass/screen.scss */
 #child3 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n002-up-walking.gif);
 }
 
-/* line 277, ../../sass/screen.scss */
+/* line 284, ../../sass/screen.scss */
 #child4 .npc-sprite {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 280, ../../sass/screen.scss */
+/* line 287, ../../sass/screen.scss */
 #child4 .npc-sprite.down {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 283, ../../sass/screen.scss */
+/* line 290, ../../sass/screen.scss */
 #child4 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n002-down-walking.gif);
 }
-/* line 288, ../../sass/screen.scss */
+/* line 295, ../../sass/screen.scss */
 #child4 .npc-sprite.left {
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 291, ../../sass/screen.scss */
+/* line 298, ../../sass/screen.scss */
 #child4 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 296, ../../sass/screen.scss */
+/* line 303, ../../sass/screen.scss */
 #child4 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -892,40 +899,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 305, ../../sass/screen.scss */
+/* line 312, ../../sass/screen.scss */
 #child4 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 310, ../../sass/screen.scss */
+/* line 317, ../../sass/screen.scss */
 #child4 .npc-sprite.up {
   background-image: url(/static/pub/img/n002-up.gif);
 }
-/* line 313, ../../sass/screen.scss */
+/* line 320, ../../sass/screen.scss */
 #child4 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n002-up-walking.gif);
 }
 
-/* line 277, ../../sass/screen.scss */
+/* line 284, ../../sass/screen.scss */
 #child5 .npc-sprite {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 280, ../../sass/screen.scss */
+/* line 287, ../../sass/screen.scss */
 #child5 .npc-sprite.down {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 283, ../../sass/screen.scss */
+/* line 290, ../../sass/screen.scss */
 #child5 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n002-down-walking.gif);
 }
-/* line 288, ../../sass/screen.scss */
+/* line 295, ../../sass/screen.scss */
 #child5 .npc-sprite.left {
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 291, ../../sass/screen.scss */
+/* line 298, ../../sass/screen.scss */
 #child5 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 296, ../../sass/screen.scss */
+/* line 303, ../../sass/screen.scss */
 #child5 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -934,40 +941,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 305, ../../sass/screen.scss */
+/* line 312, ../../sass/screen.scss */
 #child5 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 310, ../../sass/screen.scss */
+/* line 317, ../../sass/screen.scss */
 #child5 .npc-sprite.up {
   background-image: url(/static/pub/img/n002-up.gif);
 }
-/* line 313, ../../sass/screen.scss */
+/* line 320, ../../sass/screen.scss */
 #child5 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n002-up-walking.gif);
 }
 
-/* line 277, ../../sass/screen.scss */
+/* line 284, ../../sass/screen.scss */
 #child6 .npc-sprite {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 280, ../../sass/screen.scss */
+/* line 287, ../../sass/screen.scss */
 #child6 .npc-sprite.down {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 283, ../../sass/screen.scss */
+/* line 290, ../../sass/screen.scss */
 #child6 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n002-down-walking.gif);
 }
-/* line 288, ../../sass/screen.scss */
+/* line 295, ../../sass/screen.scss */
 #child6 .npc-sprite.left {
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 291, ../../sass/screen.scss */
+/* line 298, ../../sass/screen.scss */
 #child6 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 296, ../../sass/screen.scss */
+/* line 303, ../../sass/screen.scss */
 #child6 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -976,40 +983,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 305, ../../sass/screen.scss */
+/* line 312, ../../sass/screen.scss */
 #child6 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 310, ../../sass/screen.scss */
+/* line 317, ../../sass/screen.scss */
 #child6 .npc-sprite.up {
   background-image: url(/static/pub/img/n002-up.gif);
 }
-/* line 313, ../../sass/screen.scss */
+/* line 320, ../../sass/screen.scss */
 #child6 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n002-up-walking.gif);
 }
 
-/* line 277, ../../sass/screen.scss */
+/* line 284, ../../sass/screen.scss */
 #child7 .npc-sprite {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 280, ../../sass/screen.scss */
+/* line 287, ../../sass/screen.scss */
 #child7 .npc-sprite.down {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 283, ../../sass/screen.scss */
+/* line 290, ../../sass/screen.scss */
 #child7 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n002-down-walking.gif);
 }
-/* line 288, ../../sass/screen.scss */
+/* line 295, ../../sass/screen.scss */
 #child7 .npc-sprite.left {
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 291, ../../sass/screen.scss */
+/* line 298, ../../sass/screen.scss */
 #child7 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 296, ../../sass/screen.scss */
+/* line 303, ../../sass/screen.scss */
 #child7 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -1018,40 +1025,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 305, ../../sass/screen.scss */
+/* line 312, ../../sass/screen.scss */
 #child7 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 310, ../../sass/screen.scss */
+/* line 317, ../../sass/screen.scss */
 #child7 .npc-sprite.up {
   background-image: url(/static/pub/img/n002-up.gif);
 }
-/* line 313, ../../sass/screen.scss */
+/* line 320, ../../sass/screen.scss */
 #child7 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n002-up-walking.gif);
 }
 
-/* line 277, ../../sass/screen.scss */
+/* line 284, ../../sass/screen.scss */
 #child8 .npc-sprite {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 280, ../../sass/screen.scss */
+/* line 287, ../../sass/screen.scss */
 #child8 .npc-sprite.down {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 283, ../../sass/screen.scss */
+/* line 290, ../../sass/screen.scss */
 #child8 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n002-down-walking.gif);
 }
-/* line 288, ../../sass/screen.scss */
+/* line 295, ../../sass/screen.scss */
 #child8 .npc-sprite.left {
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 291, ../../sass/screen.scss */
+/* line 298, ../../sass/screen.scss */
 #child8 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 296, ../../sass/screen.scss */
+/* line 303, ../../sass/screen.scss */
 #child8 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -1060,40 +1067,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 305, ../../sass/screen.scss */
+/* line 312, ../../sass/screen.scss */
 #child8 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 310, ../../sass/screen.scss */
+/* line 317, ../../sass/screen.scss */
 #child8 .npc-sprite.up {
   background-image: url(/static/pub/img/n002-up.gif);
 }
-/* line 313, ../../sass/screen.scss */
+/* line 320, ../../sass/screen.scss */
 #child8 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n002-up-walking.gif);
 }
 
-/* line 277, ../../sass/screen.scss */
+/* line 284, ../../sass/screen.scss */
 #child9 .npc-sprite {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 280, ../../sass/screen.scss */
+/* line 287, ../../sass/screen.scss */
 #child9 .npc-sprite.down {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 283, ../../sass/screen.scss */
+/* line 290, ../../sass/screen.scss */
 #child9 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n002-down-walking.gif);
 }
-/* line 288, ../../sass/screen.scss */
+/* line 295, ../../sass/screen.scss */
 #child9 .npc-sprite.left {
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 291, ../../sass/screen.scss */
+/* line 298, ../../sass/screen.scss */
 #child9 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 296, ../../sass/screen.scss */
+/* line 303, ../../sass/screen.scss */
 #child9 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -1102,40 +1109,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 305, ../../sass/screen.scss */
+/* line 312, ../../sass/screen.scss */
 #child9 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 310, ../../sass/screen.scss */
+/* line 317, ../../sass/screen.scss */
 #child9 .npc-sprite.up {
   background-image: url(/static/pub/img/n002-up.gif);
 }
-/* line 313, ../../sass/screen.scss */
+/* line 320, ../../sass/screen.scss */
 #child9 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n002-up-walking.gif);
 }
 
-/* line 277, ../../sass/screen.scss */
+/* line 284, ../../sass/screen.scss */
 #child10 .npc-sprite {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 280, ../../sass/screen.scss */
+/* line 287, ../../sass/screen.scss */
 #child10 .npc-sprite.down {
   background-image: url(/static/pub/img/n002-down.gif);
 }
-/* line 283, ../../sass/screen.scss */
+/* line 290, ../../sass/screen.scss */
 #child10 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n002-down-walking.gif);
 }
-/* line 288, ../../sass/screen.scss */
+/* line 295, ../../sass/screen.scss */
 #child10 .npc-sprite.left {
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 291, ../../sass/screen.scss */
+/* line 298, ../../sass/screen.scss */
 #child10 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 296, ../../sass/screen.scss */
+/* line 303, ../../sass/screen.scss */
 #child10 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -1144,40 +1151,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n002-left.gif);
 }
-/* line 305, ../../sass/screen.scss */
+/* line 312, ../../sass/screen.scss */
 #child10 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n002-left-walking.gif);
 }
-/* line 310, ../../sass/screen.scss */
+/* line 317, ../../sass/screen.scss */
 #child10 .npc-sprite.up {
   background-image: url(/static/pub/img/n002-up.gif);
 }
-/* line 313, ../../sass/screen.scss */
+/* line 320, ../../sass/screen.scss */
 #child10 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n002-up-walking.gif);
 }
 
-/* line 327, ../../sass/screen.scss */
+/* line 334, ../../sass/screen.scss */
 #n000 .npc-sprite {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 330, ../../sass/screen.scss */
+/* line 337, ../../sass/screen.scss */
 #n000 .npc-sprite.down {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 333, ../../sass/screen.scss */
+/* line 340, ../../sass/screen.scss */
 #n000 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n001-down-walking.gif);
 }
-/* line 338, ../../sass/screen.scss */
+/* line 345, ../../sass/screen.scss */
 #n000 .npc-sprite.left {
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 341, ../../sass/screen.scss */
+/* line 348, ../../sass/screen.scss */
 #n000 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 346, ../../sass/screen.scss */
+/* line 353, ../../sass/screen.scss */
 #n000 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -1186,40 +1193,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 355, ../../sass/screen.scss */
+/* line 362, ../../sass/screen.scss */
 #n000 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 360, ../../sass/screen.scss */
+/* line 367, ../../sass/screen.scss */
 #n000 .npc-sprite.up {
   background-image: url(/static/pub/img/n001-up.gif);
 }
-/* line 363, ../../sass/screen.scss */
+/* line 370, ../../sass/screen.scss */
 #n000 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n001-up-walking.gif);
 }
 
-/* line 327, ../../sass/screen.scss */
+/* line 334, ../../sass/screen.scss */
 #n001 .npc-sprite {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 330, ../../sass/screen.scss */
+/* line 337, ../../sass/screen.scss */
 #n001 .npc-sprite.down {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 333, ../../sass/screen.scss */
+/* line 340, ../../sass/screen.scss */
 #n001 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n001-down-walking.gif);
 }
-/* line 338, ../../sass/screen.scss */
+/* line 345, ../../sass/screen.scss */
 #n001 .npc-sprite.left {
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 341, ../../sass/screen.scss */
+/* line 348, ../../sass/screen.scss */
 #n001 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 346, ../../sass/screen.scss */
+/* line 353, ../../sass/screen.scss */
 #n001 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -1228,40 +1235,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 355, ../../sass/screen.scss */
+/* line 362, ../../sass/screen.scss */
 #n001 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 360, ../../sass/screen.scss */
+/* line 367, ../../sass/screen.scss */
 #n001 .npc-sprite.up {
   background-image: url(/static/pub/img/n001-up.gif);
 }
-/* line 363, ../../sass/screen.scss */
+/* line 370, ../../sass/screen.scss */
 #n001 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n001-up-walking.gif);
 }
 
-/* line 327, ../../sass/screen.scss */
+/* line 334, ../../sass/screen.scss */
 #n002 .npc-sprite {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 330, ../../sass/screen.scss */
+/* line 337, ../../sass/screen.scss */
 #n002 .npc-sprite.down {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 333, ../../sass/screen.scss */
+/* line 340, ../../sass/screen.scss */
 #n002 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n001-down-walking.gif);
 }
-/* line 338, ../../sass/screen.scss */
+/* line 345, ../../sass/screen.scss */
 #n002 .npc-sprite.left {
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 341, ../../sass/screen.scss */
+/* line 348, ../../sass/screen.scss */
 #n002 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 346, ../../sass/screen.scss */
+/* line 353, ../../sass/screen.scss */
 #n002 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -1270,40 +1277,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 355, ../../sass/screen.scss */
+/* line 362, ../../sass/screen.scss */
 #n002 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 360, ../../sass/screen.scss */
+/* line 367, ../../sass/screen.scss */
 #n002 .npc-sprite.up {
   background-image: url(/static/pub/img/n001-up.gif);
 }
-/* line 363, ../../sass/screen.scss */
+/* line 370, ../../sass/screen.scss */
 #n002 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n001-up-walking.gif);
 }
 
-/* line 327, ../../sass/screen.scss */
+/* line 334, ../../sass/screen.scss */
 #n003 .npc-sprite {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 330, ../../sass/screen.scss */
+/* line 337, ../../sass/screen.scss */
 #n003 .npc-sprite.down {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 333, ../../sass/screen.scss */
+/* line 340, ../../sass/screen.scss */
 #n003 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n001-down-walking.gif);
 }
-/* line 338, ../../sass/screen.scss */
+/* line 345, ../../sass/screen.scss */
 #n003 .npc-sprite.left {
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 341, ../../sass/screen.scss */
+/* line 348, ../../sass/screen.scss */
 #n003 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 346, ../../sass/screen.scss */
+/* line 353, ../../sass/screen.scss */
 #n003 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -1312,40 +1319,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 355, ../../sass/screen.scss */
+/* line 362, ../../sass/screen.scss */
 #n003 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 360, ../../sass/screen.scss */
+/* line 367, ../../sass/screen.scss */
 #n003 .npc-sprite.up {
   background-image: url(/static/pub/img/n001-up.gif);
 }
-/* line 363, ../../sass/screen.scss */
+/* line 370, ../../sass/screen.scss */
 #n003 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n001-up-walking.gif);
 }
 
-/* line 327, ../../sass/screen.scss */
+/* line 334, ../../sass/screen.scss */
 #n004 .npc-sprite {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 330, ../../sass/screen.scss */
+/* line 337, ../../sass/screen.scss */
 #n004 .npc-sprite.down {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 333, ../../sass/screen.scss */
+/* line 340, ../../sass/screen.scss */
 #n004 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n001-down-walking.gif);
 }
-/* line 338, ../../sass/screen.scss */
+/* line 345, ../../sass/screen.scss */
 #n004 .npc-sprite.left {
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 341, ../../sass/screen.scss */
+/* line 348, ../../sass/screen.scss */
 #n004 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 346, ../../sass/screen.scss */
+/* line 353, ../../sass/screen.scss */
 #n004 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -1354,40 +1361,40 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 355, ../../sass/screen.scss */
+/* line 362, ../../sass/screen.scss */
 #n004 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 360, ../../sass/screen.scss */
+/* line 367, ../../sass/screen.scss */
 #n004 .npc-sprite.up {
   background-image: url(/static/pub/img/n001-up.gif);
 }
-/* line 363, ../../sass/screen.scss */
+/* line 370, ../../sass/screen.scss */
 #n004 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n001-up-walking.gif);
 }
 
-/* line 327, ../../sass/screen.scss */
+/* line 334, ../../sass/screen.scss */
 #n005 .npc-sprite {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 330, ../../sass/screen.scss */
+/* line 337, ../../sass/screen.scss */
 #n005 .npc-sprite.down {
   background-image: url(/static/pub/img/n001-down.gif);
 }
-/* line 333, ../../sass/screen.scss */
+/* line 340, ../../sass/screen.scss */
 #n005 .npc-sprite.down.walking {
   background-image: url(/static/pub/img/n001-down-walking.gif);
 }
-/* line 338, ../../sass/screen.scss */
+/* line 345, ../../sass/screen.scss */
 #n005 .npc-sprite.left {
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 341, ../../sass/screen.scss */
+/* line 348, ../../sass/screen.scss */
 #n005 .npc-sprite.left.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 346, ../../sass/screen.scss */
+/* line 353, ../../sass/screen.scss */
 #n005 .npc-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -1396,28 +1403,28 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/n001-left.gif);
 }
-/* line 355, ../../sass/screen.scss */
+/* line 362, ../../sass/screen.scss */
 #n005 .npc-sprite.right.walking {
   background-image: url(/static/pub/img/n001-left-walking.gif);
 }
-/* line 360, ../../sass/screen.scss */
+/* line 367, ../../sass/screen.scss */
 #n005 .npc-sprite.up {
   background-image: url(/static/pub/img/n001-up.gif);
 }
-/* line 363, ../../sass/screen.scss */
+/* line 370, ../../sass/screen.scss */
 #n005 .npc-sprite.up.walking {
   background-image: url(/static/pub/img/n001-up-walking.gif);
 }
 
 /** PLAYER ****************************************************************************************/
-/* line 373, ../../sass/screen.scss */
+/* line 380, ../../sass/screen.scss */
 #player {
   background-color: rgba(255, 0, 0, 0);
   height: 32px;
   position: absolute;
   width: 32px;
 }
-/* line 379, ../../sass/screen.scss */
+/* line 386, ../../sass/screen.scss */
 #player #player-sprite {
   background-image: url(/static/pub/img/rene-down.gif);
   background-repeat: no-repeat;
@@ -1427,23 +1434,23 @@ a:hover {
   top: -8px;
   width: 32px;
 }
-/* line 388, ../../sass/screen.scss */
+/* line 395, ../../sass/screen.scss */
 #player #player-sprite.down {
   background-image: url(/static/pub/img/rene-down.gif);
 }
-/* line 391, ../../sass/screen.scss */
+/* line 398, ../../sass/screen.scss */
 #player #player-sprite.down.walking {
   background-image: url(/static/pub/img/rene-down-walking.gif);
 }
-/* line 396, ../../sass/screen.scss */
+/* line 403, ../../sass/screen.scss */
 #player #player-sprite.left {
   background-image: url(/static/pub/img/rene-left.gif);
 }
-/* line 399, ../../sass/screen.scss */
+/* line 406, ../../sass/screen.scss */
 #player #player-sprite.left.walking {
   background-image: url(/static/pub/img/rene-left-walking.gif);
 }
-/* line 404, ../../sass/screen.scss */
+/* line 411, ../../sass/screen.scss */
 #player #player-sprite.right {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -1452,21 +1459,21 @@ a:hover {
   transform: scaleX(-1);
   background-image: url(/static/pub/img/rene-left.gif);
 }
-/* line 413, ../../sass/screen.scss */
+/* line 420, ../../sass/screen.scss */
 #player #player-sprite.right.walking {
   background-image: url(/static/pub/img/rene-left-walking.gif);
 }
-/* line 418, ../../sass/screen.scss */
+/* line 425, ../../sass/screen.scss */
 #player #player-sprite.up {
   background-image: url(/static/pub/img/rene-up.gif);
 }
-/* line 421, ../../sass/screen.scss */
+/* line 428, ../../sass/screen.scss */
 #player #player-sprite.up.walking {
   background-image: url(/static/pub/img/rene-up-walking.gif);
 }
 
 /** TRANSITION ************************************************************************************/
-/* line 430, ../../sass/screen.scss */
+/* line 437, ../../sass/screen.scss */
 #transition {
   background-color: #000000;
   height: 100%;
@@ -1476,17 +1483,17 @@ a:hover {
 }
 
 /** STAGE *****************************************************************************************/
-/* line 440, ../../sass/screen.scss */
+/* line 447, ../../sass/screen.scss */
 #stage {
   overflow: hidden;
   position: absolute;
 }
-/* line 445, ../../sass/screen.scss */
+/* line 452, ../../sass/screen.scss */
 #stage #collisions {
   position: relative;
   z-index: 2;
 }
-/* line 449, ../../sass/screen.scss */
+/* line 456, ../../sass/screen.scss */
 #stage #collisions .collision {
   background-color: #FF0000;
   height: 32px;
@@ -1494,27 +1501,27 @@ a:hover {
   position: absolute;
   width: 32px;
 }
-/* line 459, ../../sass/screen.scss */
+/* line 466, ../../sass/screen.scss */
 #stage #objects {
   position: relative;
   z-index: 1;
 }
-/* line 463, ../../sass/screen.scss */
+/* line 470, ../../sass/screen.scss */
 #stage #objects .object {
   height: 32px;
   position: absolute;
   width: 32px;
 }
-/* line 468, ../../sass/screen.scss */
+/* line 475, ../../sass/screen.scss */
 #stage #objects .object.doorway, #stage #objects .object.stairs {
   background-color: #00FF00;
   opacity: 0;
 }
-/* line 477, ../../sass/screen.scss */
+/* line 484, ../../sass/screen.scss */
 #stage #tiles {
   position: relative;
 }
-/* line 480, ../../sass/screen.scss */
+/* line 487, ../../sass/screen.scss */
 #stage #tiles .tile {
   background-image: url(/static/pub/img/tile-map.gif);
   background-repeat: no-repeat;

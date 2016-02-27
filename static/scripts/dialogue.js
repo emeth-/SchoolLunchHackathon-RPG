@@ -21,13 +21,13 @@ Dialogue = {
             npc.dialogueId = "step1_start";
         },
         goTo        : 'game_load2',
-        text    : "Welcome! I'm a clerk who has been tasked with helping you fill out this form. Hit enter to continue."
+        text    : "Welcome! I'm a clerk who has been tasked with helping you fill out this form."
     },
 
     'game_load2': {
         type        : 'dialogue',
         emote       : 'happiness',
-        text    : "The enter key can be used to speak to people and end dialogues. After closing this dialogue (by hitting enter), use the arrow keys to walk over to me, and then hit enter to speak with me.",
+        text    : "The enter key can be used to speak to people and end dialogues. After closing this dialogue, use the arrow keys to walk over to me, and then hit enter to speak with me.",
         action: function(npc) {
             setTimeout(function(){
                 npc.npc('emote', 'question');
