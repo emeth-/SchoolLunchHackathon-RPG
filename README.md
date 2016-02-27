@@ -19,7 +19,7 @@ SchoolLunchHackathon-RPG
 $ sudo pip install -r requirements.txt
 $ heroku apps:create hackathon-demo 
 $ heroku config:set IS_HEROKU_SERVER=1
-$ git push heroku master
+$ git push heroku develop:master
 ```
 
 Run migrations
