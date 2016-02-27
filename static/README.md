@@ -30,6 +30,8 @@ Run Grunt in order to compile the newly installed third party vendor scripts, an
 grunt
 ```
 
+To edit the map, you will need to download [Tiled](http://www.mapeditor.org/). Open the file /static/images/a000.tmx in Tiled. Make your changes, then save it to the same file. Then, to get it appear in game, export is as json (via Tiled) to the file /static/pub/json/a000.json.
+
 
 ##### Thanks
 
