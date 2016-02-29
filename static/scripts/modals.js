@@ -47,7 +47,7 @@ function Modals () {
 
                     }
                     break;
-                
+
                 case (activeElement.is('input') || activeElement.hasClass('inputincome')) :
                     if (Game.pressedKeys[13]) { //enter key only
 
@@ -57,6 +57,10 @@ function Modals () {
                             value = activeElement.parent().find('input').val() + " " + activeElement.parent().find('select').val();
                         }
 
+                        if (!value) {
+                            console.log("short circuit, form not filled out");
+                            return;
+                        }
                         if (dialogue.action) {
                             dialogue.action(modal.data('modal')['npc'], value);
                         }

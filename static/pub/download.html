@@ -123,6 +123,9 @@
                     if (child.homeless) {
                         child_types.push("Homeless/Migrant/Runaway");
                     }
+                    if (parseInt(child.income)) {
+                        child_types.push("<li>Earning: $"+child.income+"</li>");
+                    }
                     if (child_types.length > 0) {
                         childrenlist_html += " - " + child_types.join(', ');
                     }

@@ -172,12 +172,12 @@ Dialogue = {
         ]
     },
 
-    'ichi04': {
+    'ichi04a': {
         type    : 'choice',
         choices : [
             {
                 label       : 'I am not homeless / a migrate / a runaway',
-                goTo        : 'ichi05',
+                goTo        : 'ichi04b',
                 action: function(npc, value) {
                     var npc_id = npc.data()['npc'].id;
                     if (!(npc_id in Game.formData['children'])) {
@@ -188,7 +188,7 @@ Dialogue = {
             },
             {
                 label       : 'I am homeless / a migrate / a runaway',
-                goTo        : 'ichi05',
+                goTo        : 'ichi04b',
                 action: function(npc, value) {
                     var npc_id = npc.data()['npc'].id;
                     if (!(npc_id in Game.formData['children'])) {
@@ -198,6 +198,17 @@ Dialogue = {
                 }
             }
         ]
+    },
+
+    'ichi04b': {
+        type    : 'inputincome',
+        goTo    : 'ichi05',
+        label : 'How much income do I earn?',
+        action: function(npc, value) {
+            if (npc && value) {
+                Game.formData['children'][npc_id]['income'] = value;
+            }
+        }
     },
 
     'ichi05': {
@@ -426,21 +437,10 @@ Dialogue = {
     'step3_start': {
         type        : 'dialogue',
         text        : "We're going to finish gathering details about your household here.",
-        goTo        : 'step3_i1a'
+        goTo        : 'step3_i1'
     },
 
-    'step3_i1a': {
-        type    : 'inputincome',
-        goTo    : 'step3_i1b',
-        label : 'How much income do ALL the children you entered earlier earn?',
-        action: function(npc, value) {
-            if (npc && value) {
-                Game.formData['childrenincome'] = value;
-            }
-        }
-    },
-
-    'step3_i1b': {
+    'step3_i1': {
         type    : 'input',
         emote   : 'think',
         label   : 'How many adults are in your household?',
@@ -476,7 +476,7 @@ Dialogue = {
 
             {
                 label       : 'No',
-                goTo        : 'step3_i1b',
+                goTo        : 'step3_i1',
             }
         ]
     },
@@ -611,17 +611,33 @@ Dialogue = {
     },
 
     'step4_form1a': {
+        type    : 'choice',
+        emote   : 'think',
+        choices : [
+            {
+                label       : 'I have a SSN.',
+                goTo        : 'step4_form1b'
+            },
+
+            {
+                label       : 'I do not have a SSN.',
+                goTo        : 'step4_form1c'
+            }
+        ]
+    },
+
+    'step4_form1b': {
         type    : 'input',
         emote   : 'think',
         label   : 'What are the last 4 digits of your SSN?',
-        goTo    : 'step4_form1b',
+        goTo    : 'step4_form1c',
         action: function(npc, value) {
             Game.formData['ssn'] = value;
         }
     },
 
 
-    'step4_form1b': {
+    'step4_form1c': {
         type    : 'input',
         emote   : 'think',
         label   : 'What is your street address?',
