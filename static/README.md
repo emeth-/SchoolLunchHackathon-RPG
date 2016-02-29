@@ -30,7 +30,9 @@ Run Grunt in order to compile the newly installed third party vendor scripts, an
 grunt
 ```
 
+To edit the map, you will need to download [Tiled](http://www.mapeditor.org/). Open the file /static/images/a000.tmx in Tiled. Make your changes, then save it to the same file. Then, to get it appear in game, export is as json (via Tiled) to the file /static/pub/json/a000.json.
+
 
 ##### Thanks
 
-A big shout-out and thanks to robobeau, who built the RPG engine used and released it under the MIT license [here](https://github.com/robobeau/JobInterviewStory)
+A big shout-out and thanks to robobeau, whose [RPG Engine library](https://github.com/robobeau/JobInterviewStory) (also released under the MIT License) was used in this project.
