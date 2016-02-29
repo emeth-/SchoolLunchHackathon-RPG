@@ -35,4 +35,4 @@ To edit the map, you will need to download [Tiled](http://www.mapeditor.org/). O
 
 ##### Thanks
 
-A big shout-out and thanks to robobeau, who built the RPG engine used and released it under the MIT license [here](https://github.com/robobeau/JobInterviewStory)
+A big shout-out and thanks to robobeau, whose [RPG Engine library](https://github.com/robobeau/JobInterviewStory) (also released under the MIT License) was used in this project.
