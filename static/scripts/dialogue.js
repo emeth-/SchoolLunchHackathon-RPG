@@ -98,6 +98,7 @@ Dialogue = {
 
     'dchi01': {
         type        : 'dialogue',
+        emote       : 'question',
         text        : "I'm an avatar representing your child! Help fill out more information about me.",
         goTo        : 'ichi01'
     },
@@ -106,6 +107,7 @@ Dialogue = {
     'ichi01': {
         type    : 'input',
         goTo    : 'ichi02',
+        emote   : 'question',
         label : 'What is my name? (First name, middle initial, last name)',
         action: function(npc, value) {
             var npc_id = npc.data()['npc'].id;
@@ -118,6 +120,7 @@ Dialogue = {
 
     'ichi02': {
         type    : 'choice',
+        emote       : 'question',
         choices : [
             {
                 label       : 'I am not a student',
@@ -146,10 +149,11 @@ Dialogue = {
 
     'ichi03': {
         type    : 'choice',
+        emote       : 'question',
         choices : [
             {
                 label       : 'I am not a foster child',
-                goTo        : 'ichi04',
+                goTo        : 'ichi04a',
                 action: function(npc, value) {
                     var npc_id = npc.data()['npc'].id;
                     if (!(npc_id in Game.formData['children'])) {
@@ -160,7 +164,7 @@ Dialogue = {
             },
             {
                 label       : 'I am a foster child',
-                goTo        : 'ichi04',
+                goTo        : 'ichi04a',
                 action: function(npc, value) {
                     var npc_id = npc.data()['npc'].id;
                     if (!(npc_id in Game.formData['children'])) {
@@ -174,6 +178,7 @@ Dialogue = {
 
     'ichi04a': {
         type    : 'choice',
+        emote       : 'question',
         choices : [
             {
                 label       : 'I am not homeless / a migrate / a runaway',
@@ -203,9 +208,11 @@ Dialogue = {
     'ichi04b': {
         type    : 'inputincome',
         goTo    : 'ichi05',
+        emote       : 'question',
         label : 'How much income do I earn?',
         action: function(npc, value) {
             if (npc && value) {
+                var npc_id = npc.data()['npc'].id;
                 Game.formData['children'][npc_id]['income'] = value;
             }
         }
@@ -214,6 +221,7 @@ Dialogue = {
     'ichi05': {
         type        : 'dialogue',
         text        : "...",
+        emote       : 'question',
         dynamicText: function(npc){
             var c = Game.formData.children[npc.data().npc.id];
             recap_statement = "";
@@ -236,6 +244,9 @@ Dialogue = {
             else {
                 recap_statement += "I am not homeless / a migrate / a runaway. ";
             }
+            if (parseInt(c.income)) {
+                recap_statement += "I earn $"+c.income+". ";
+            }
             recap_statement += "Is this correct?";
             return recap_statement;
         },
@@ -244,7 +255,7 @@ Dialogue = {
 
     'ichi06': {
         type    : 'choice',
-        emote   : 'think',
+        emote       : 'question',
         choices : [
             {
                 label       : 'Yes',
@@ -262,6 +273,7 @@ Dialogue = {
         type        : 'dialogue',
         text        : "Thanks! I'm good to go!",
         end         : true,
+        emote       : 'question',
         triggeredText: function(npc) {
             npc.dialogueId = "step1_start";
         },
@@ -322,7 +334,7 @@ Dialogue = {
     'step2_npcstart': {
         type        : 'dialogue',
         text        : "Excellent! Come talk to me to move on to the next step.",
-        emote       : 'happiness',
+        emote       : 'question',
         end         : true,
         action      : function(npc) {
             if (npc && !npc.data().npc['frozen']) {
@@ -351,13 +363,14 @@ Dialogue = {
 
     'step2_start': {
         type        : 'dialogue',
+        emote       : 'question',
         text        : "Do any Household Members (including you) currently participate in one or more of the following assistance programs: SNAP, TANF, or FDPIR?",
         goTo        : 'step2_choice'
     },
 
     'step2_choice': {
         type    : 'choice',
-        emote   : 'think',
+        emote       : 'question',
         choices : [
             {
                 label       : 'No (we do not partipicate in SNAP, TANF, or FDPIR)',
@@ -373,6 +386,7 @@ Dialogue = {
     'step2_followup': {
         type    : 'input',
         goTo    : 'step2_end',
+        emote       : 'question',
         label : 'What is your case number?',
         action: function(npc, value) {
             Game.formData['case_number'] = value;
@@ -382,7 +396,7 @@ Dialogue = {
     'step2_end': {
         type        : 'dialogue',
         text        : "Excellent! We're done here, move on to the next room.",
-        emote       : 'think',
+        emote       : 'question',
         end         : true,
         action: function(npc, value) {
             if (npc) {
@@ -436,13 +450,14 @@ Dialogue = {
 
     'step3_start': {
         type        : 'dialogue',
+        emote       : 'question',
         text        : "We're going to finish gathering details about your household here.",
         goTo        : 'step3_i1'
     },
 
     'step3_i1': {
         type    : 'input',
-        emote   : 'think',
+        emote       : 'question',
         label   : 'How many adults are in your household?',
         goTo    : 'step3_i2',
         action: function(npc, value) {
@@ -460,6 +475,7 @@ Dialogue = {
     'step3_i2': {
         type        : 'dialogue',
         text        : "...",
+        emote       : 'question',
         dynamicText: function(){
             return "You said there are "+Game.adults_left_to_fill_out+" adults and "+Object.keys(Game.formData.children).length+" children in your household, is this correct?";
         },
@@ -468,6 +484,7 @@ Dialogue = {
 
     'step3_i3': {
         type    : 'choice',
+        emote       : 'question',
         choices : [
             {
                 label       : 'Yes',
@@ -491,6 +508,7 @@ Dialogue = {
 
     'dadult01': {
         type        : 'dialogue',
+        emote       : 'question',
         text        : "I'm an avatar representing an adult in your family! Help fill out more information about me.",
         goTo        : 'dadult02'
     },
@@ -498,6 +516,7 @@ Dialogue = {
     'dadult02': {
         type    : 'input',
         goTo    : 'dadult03',
+        emote       : 'question',
         label : 'What is my name? (First name, last name)',
         action: function(npc, value) {
             var npc_id = npc.data()['npc'].id;
@@ -511,6 +530,7 @@ Dialogue = {
     'dadult03': {
         type    : 'inputincome',
         goTo    : 'dadult04',
+        emote       : 'question',
         label : 'What income do I get from work?',
         action: function(npc, value) {
             if (npc && value) {
@@ -522,6 +542,7 @@ Dialogue = {
     'dadult04': {
         type    : 'inputincome',
         goTo    : 'dadult05',
+        emote       : 'question',
         label : 'What income do I get from Public Assistance/Child Support/Alimony?',
         action: function(npc, value) {
             if (npc && value) {
@@ -533,6 +554,7 @@ Dialogue = {
     'dadult05': {
         type    : 'inputincome',
         goTo    : 'dadult06',
+        emote       : 'question',
         label : 'What income do I get from Pensions/Retirement/All Other Sources?',
         action: function(npc, value) {
             if (npc && value) {
@@ -544,6 +566,7 @@ Dialogue = {
     'dadult06': {
         type        : 'dialogue',
         text        : "Thanks! I'm good to go!",
+        emote       : 'question',
         end         : true,
         triggeredText: function(npc) {
             npc.dialogueId = "step1_start";
@@ -606,13 +629,14 @@ Dialogue = {
 
     'step4_start': {
         type        : 'dialogue',
+        emote       : 'question',
         text        : "To finalize the form, we'll need a signature and some contact information. Let's go through that now.",
         goTo        : 'step4_form1a'
     },
 
     'step4_form1a': {
         type    : 'choice',
-        emote   : 'think',
+        emote       : 'question',
         choices : [
             {
                 label       : 'I have a SSN.',
@@ -628,7 +652,7 @@ Dialogue = {
 
     'step4_form1b': {
         type    : 'input',
-        emote   : 'think',
+        emote       : 'question',
         label   : 'What are the last 4 digits of your SSN?',
         goTo    : 'step4_form1c',
         action: function(npc, value) {
@@ -639,7 +663,7 @@ Dialogue = {
 
     'step4_form1c': {
         type    : 'input',
-        emote   : 'think',
+        emote       : 'question',
         label   : 'What is your street address?',
         goTo    : 'step4_form2',
         action: function(npc, value) {
@@ -649,7 +673,7 @@ Dialogue = {
 
     'step4_form2': {
         type    : 'input',
-        emote   : 'think',
+        emote       : 'question',
         label   : 'City?',
         goTo    : 'step4_form3',
         action: function(npc, value) {
@@ -659,7 +683,7 @@ Dialogue = {
 
     'step4_form3': {
         type    : 'input',
-        emote   : 'think',
+        emote       : 'question',
         label   : 'State?',
         goTo    : 'step4_form4',
         action: function(npc, value) {
@@ -669,7 +693,7 @@ Dialogue = {
 
     'step4_form4': {
         type    : 'input',
-        emote   : 'think',
+        emote       : 'question',
         label   : 'Zip Code?',
         goTo    : 'step4_form5',
         action: function(npc, value) {
@@ -678,9 +702,9 @@ Dialogue = {
     },
 
     'step4_form5': {
-        type    : 'input',
-        emote   : 'think',
-        label   : 'Phone number? (optional)',
+        type    : 'inputoptional',
+        emote       : 'question',
+        label   : 'Phone number? (optional, hit enter to skip)',
         goTo    : 'step4_form6',
         action: function(npc, value) {
             Game.formData['phonenumber'] = value;
@@ -688,9 +712,9 @@ Dialogue = {
     },
 
     'step4_form6': {
-        type    : 'input',
-        emote   : 'think',
-        label   : 'Email? (optional)',
+        type    : 'inputoptional',
+        emote       : 'question',
+        label   : 'Email? (optional, hit enter to skip)',
         goTo    : 'step4_form7',
         action: function(npc, value) {
             Game.formData['email'] = value;
@@ -699,7 +723,7 @@ Dialogue = {
 
     'step4_form7': {
         type    : 'input',
-        emote   : 'think',
+        emote       : 'question',
         label   : 'What is your name?',
         goTo    : 'step4_form8a',
         action: function(npc, value) {
@@ -709,21 +733,21 @@ Dialogue = {
 
     'step4_form8a': {
         type    : 'dialogue',
-        emote   : 'think',
+        emote       : 'question',
         text   : 'I certify (promise) that all information on this application is true and that all income is reported. I understand that this information is given in connection with the receipt of Federal funds, and that school officials may verify (check) the information.',
         goTo    : 'step4_form8b'
     },
 
     'step4_form8b': {
         type    : 'dialogue',
-        emote   : 'think',
+        emote       : 'question',
         text   : 'I am aware that if I purposely give false information, my children may lose meal benefits, and I may be prosecuted under applicable State and Federal laws.',
         goTo    : 'step4_form9'
     },
 
     'step4_form9': {
         type    : 'input',
-        emote   : 'think',
+        emote       : 'question',
         label   : 'Type in your name here, this will operate as your legal signature:',
         goTo    : 'step4_form10a',
         action: function(npc, value) {
@@ -733,21 +757,21 @@ Dialogue = {
 
     'step4_form10a': {
         type    : 'dialogue',
-        emote   : 'think',
+        emote       : 'question',
         text   : "We are required to ask for information about your children's race and ethnicity. This information is important and helps to make sure we are fully serving our community.",
         goTo    : 'step4_form10b'
     },
 
     'step4_form10b': {
         type    : 'dialogue',
-        emote   : 'think',
+        emote       : 'question',
         text   : "Responding to this section is optional and does not affect your children's eligibility for free or reduced price meals.",
         goTo    : 'step4_form11'
     },
 
     'step4_form11': {
         type    : 'choice',
-        emote   : 'think',
+        emote       : 'question',
         choices : [
             {
                 label       : 'I would NOT like to fill out this optional information.',
@@ -762,7 +786,7 @@ Dialogue = {
 
     'step4_form12': {
         type    : 'choice',
-        emote   : 'think',
+        emote       : 'question',
         choices : [
             {
                 label       : 'Ethnicity: Not Hispanic or Latino',
@@ -783,7 +807,7 @@ Dialogue = {
 
     'step4_form13': {
         type    : 'choice',
-        emote   : 'think',
+        emote       : 'question',
         choices : [
             {
                 label       : 'Race: NOT American Indian or Alaskan Native',
@@ -804,7 +828,7 @@ Dialogue = {
 
     'step4_form14': {
         type    : 'choice',
-        emote   : 'think',
+        emote       : 'question',
         choices : [
             {
                 label       : 'Race: NOT Asian',
@@ -825,7 +849,7 @@ Dialogue = {
 
     'step4_form15': {
         type    : 'choice',
-        emote   : 'think',
+        emote       : 'question',
         choices : [
             {
                 label       : 'Race: NOT Black or African American',
@@ -846,7 +870,7 @@ Dialogue = {
 
     'step4_form16': {
         type    : 'choice',
-        emote   : 'think',
+        emote       : 'question',
         choices : [
             {
                 label       : 'Race: NOT Native Hawaiian or Other Pacific Islander',
@@ -867,7 +891,7 @@ Dialogue = {
 
     'step4_form17': {
         type    : 'choice',
-        emote   : 'think',
+        emote       : 'question',
         choices : [
             {
                 label       : 'Race: NOT White',

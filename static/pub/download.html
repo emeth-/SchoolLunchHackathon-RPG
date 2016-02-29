@@ -29,11 +29,6 @@
             Yes, Case Number 123213
         </span>
 
-        <h4>Child Income:</h4>
-        <span id='childincome'>
-            $123,123 Weekly
-        </span>
-
         <h4>Adult Household Members:</h4>
         <ul id="adult_members">
             <li>Mike Burke</li>
@@ -124,7 +119,7 @@
                         child_types.push("Homeless/Migrant/Runaway");
                     }
                     if (parseInt(child.income)) {
-                        child_types.push("<li>Earning: $"+child.income+"</li>");
+                        child_types.push("Earning: $"+child.income);
                     }
                     if (child_types.length > 0) {
                         childrenlist_html += " - " + child_types.join(', ');
@@ -138,12 +133,6 @@
                     assisshtml = "Yes, Case Number: "+formdata.case_number;
                 }
                 $('#assistanceprogram').html(assisshtml);
-
-                var childrenincomehtml = "None";
-                if (parseInt(formdata.childrenincome)) {
-                    childrenincomehtml = "$"+formdata.childrenincome;
-                }
-                $("#childincome").html(childrenincomehtml);
                 
 
                 var adultlist_html = "";

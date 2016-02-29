@@ -57,16 +57,14 @@ function Modals () {
                             value = activeElement.parent().find('input').val() + " " + activeElement.parent().find('select').val();
                         }
 
-                        if (!value) {
-                            console.log("short circuit, form not filled out");
-                            return;
-                        }
-                        if (dialogue.action) {
-                            dialogue.action(modal.data('modal')['npc'], value);
-                        }
+                        if (activeElement.hasClass('inputoptional') || value) {
+                            if (dialogue.action) {
+                                dialogue.action(modal.data('modal')['npc'], value);
+                            }
 
-                        if (dialogue.goTo) {
-                            return modal.modal('populate', Dialogue[dialogue.goTo]);
+                            if (dialogue.goTo) {
+                                return modal.modal('populate', Dialogue[dialogue.goTo]);
+                            }
                         }
 
                     }
@@ -296,6 +294,12 @@ function Modals () {
             // Input
             case 'input':
                 var choices = dialogue.label + '<br><input type="text" tabindex="0">';
+                modal.html(choices).find('input').trigger('focus');
+                break;
+
+            // Input
+            case 'inputoptional':
+                var choices = dialogue.label + '<br><input class="inputoptional" type="text" tabindex="0">';
                 modal.html(choices).find('input').trigger('focus');
                 break;
 
